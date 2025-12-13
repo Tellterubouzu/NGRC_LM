@@ -1,0 +1,164 @@
+_wandb:
+    value:
+        cli_version: 0.21.4
+        e:
+            pd32cz54zoun39xdl3bydde8j9xknz1f:
+                args:
+                    - --ngrc_d_model
+                    - "64"
+                    - --ngrc_feature
+                    - z
+                codePath: src/ngrc_lm.py
+                codePathLocal: ngrc_lm.py
+                cpu_count: 72
+                cpu_count_logical: 72
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "137371844608"
+                        used: "14690496512"
+                email: shimomura.teruki174@mail.kyutech.jp
+                executable: /work/gj26/b20072/miniconda3/envs/esn/bin/python
+                git:
+                    commit: d451279315ce33390b7e207eefe8b28712e2f081
+                    remote: https://github.com/Tellterubouzu/NGRC_LM
+                gpu: NVIDIA GH200 120GB
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 16896
+                      memoryTotal: "102625181696"
+                      name: NVIDIA GH200 120GB
+                      uuid: GPU-eb4e6874-f20a-8e12-c0a7-befdb2108513
+                host: mg0851
+                memory:
+                    total: "228161224704"
+                os: Linux-5.14.0-427.13.1.el9_4.aarch64+64k-aarch64-with-glibc2.34
+                program: /work/gp36/b20072/NGRC_LM/src/ngrc_lm.py
+                python: CPython 3.11.13
+                root: /work/gp36/b20072/NGRC_LM/src
+                startedAt: "2025-12-13T08:43:05.458371Z"
+                writerId: pd32cz54zoun39xdl3bydde8j9xknz1f
+        m: []
+        python_version: 3.11.13
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+            "3":
+                - 13
+                - 16
+                - 61
+            "4": 3.11.13
+            "5": 0.21.4
+            "6": 4.56.1
+            "12": 0.21.4
+            "13": linux-aarch64
+        visualize:
+            mean_so_far_ppl_curve:
+                panel_config:
+                    fieldSettings:
+                        stroke: null
+                        x: token_length
+                        "y": perplexity
+                    panelDefId: wandb/line/v0
+                    stringSettings:
+                        title: Mean-so-far PPL vs Token Length
+                    transform:
+                        name: tableWithLeafColNames
+                    userQuery:
+                        queryFields:
+                            - args:
+                                - name: runSets
+                                  value: ${runSets}
+                              fields:
+                                - fields: []
+                                  name: id
+                                - fields: []
+                                  name: name
+                                - fields: []
+                                  name: _defaultColorIndex
+                                - args:
+                                    - name: tableKey
+                                      value: mean_so_far_ppl_curve_table
+                                  fields: []
+                                  name: summaryTable
+                              name: runSets
+                panel_type: Vega2
+api_file:
+    value: api.txt
+beta1:
+    value: 0.9
+beta2:
+    value: 0.95
+dataset_path:
+    value: HuggingFaceFW/fineweb-edu
+deepspeed_config:
+    value: ds_config.json
+enable_compile:
+    value: false
+epochs:
+    value: 1
+generate_every:
+    value: 1000
+grad_clip_norm:
+    value: 0
+hf_private:
+    value: true
+hf_repo:
+    value: null
+learning_rate:
+    value: 0.001
+local_batch_size:
+    value: 32
+local_rank:
+    value: 0
+ngrc_d_model:
+    value: 64
+ngrc_embed_frozen:
+    value: false
+ngrc_feature:
+    value: z
+ngrc_lag:
+    value: 32
+ngrc_loss:
+    value: ce
+ngrc_max_cross_terms:
+    value: 256
+ngrc_ridge_alpha:
+    value: 0.001
+ngrc_ridge_max_batches:
+    value: 200
+ngrc_training:
+    value: sgd
+save_checkpoint_every_steps:
+    value: 200
+seq_len:
+    value: 256
+tokenizer_path:
+    value: meta-llama/Llama-2-7b-hf
+total_tokens:
+    value: 1e+08
+use_deepspeed:
+    value: false
+use_gpu_amount:
+    value: 1
+val_dataset_path:
+    value: vesteinn/babylm
+validate_every_steps:
+    value: 200
+wandb_project:
+    value: NGRC_LanguageModel
+wandb_run_name:
+    value: null
+weight_decay:
+    value: 0.1

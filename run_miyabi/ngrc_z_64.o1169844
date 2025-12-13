@@ -1,0 +1,41 @@
+User customization module loaded!
+[2025-12-13 17:49:17,466] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-13 17:49:19,527] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+User customization module loaded!
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251213_174954-mvnnmfg3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(133.15M_d64_lag32_featz_z2_lr0.001_bs32_seq256_20251213-174920
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/mvnnmfg3
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=32, use_gpu_amount=1, learning_rate=0.001, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=64, ngrc_lag=32, ngrc_feature='z_z2', ngrc_max_cross_terms=256, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=64, lag=32, feature_type=z_z2, phi_dim=4097, embed_trainable=True, loss_type=ce
+parameter count: 133.15M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
