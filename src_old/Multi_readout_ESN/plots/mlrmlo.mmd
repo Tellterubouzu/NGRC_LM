@@ -1,0 +1,44 @@
+flowchart LR
+  %% ---------------------------------------------
+  %% ESN-LM: Multi-Leak Reservoir + Multi-Readout (MoE) + Shared Vocab Projection
+  %% ---------------------------------------------
+  %% Styles
+  classDef fixed stroke:#666,stroke-width:1px,stroke-dasharray:5 5,fill:#ffffff,color:#111;
+  classDef learn stroke:#0b63ff,stroke-width:2px,fill:#eef4ff,color:#111;
+  classDef op stroke:#444,stroke-width:1px,fill:#ffffff,color:#111;
+
+  %% ---------- Reservoir update ----------
+  subgraph R["Reservoir update (fixed weights, learnable leaks)"]
+    direction LR
+    xt["Token x_t"]:::fixed --> Ein["Input Embedding  E_in  (V×N)\n[fixed]"]:::fixed
+    hprev["h_{t-1}"]:::fixed --> Wrec["Recurrent  W_rec  (N×N)\n[fixed, ρ ≈ 0.99]"]:::fixed
+
+    Ein --> SUM1(("+"))
+    Wrec --> SUM1
+    SUM1 --> ACT["Nonlinearity  φ\nclamp(u_t + r_t)"]:::op
+    ACT --> LEAK["Per-neuron leak  a_i ∈ [α_min, α_max]\n[learnable]"]:::learn
+    LEAK --> ht["h_t"]:::fixed
+  end
+
+  %% ---------- Readout (MoE) ----------
+  subgraph O["Multi-readout (MoE) + Shared vocab projection"]
+    direction TB
+    ht --> GATE["Gate  p(h_t):  ℝ^N → ℝ^K\nsoftmax (optional top-k)\n[learnable]"]:::learn
+
+    %% Experts
+    ht --> B1["Expert  B₁:  ℝ^N → ℝ^r\n[learnable]"]:::learn
+    ht --> B2["Expert  B₂:  ℝ^N → ℝ^r\n[learnable]"]:::learn
+    ht --> B3["Expert  B₃:  ℝ^N → ℝ^r\n[learnable]"]:::learn
+    ht --> BK["…  B_K:  ℝ^N → ℝ^r\n[learnable]"]:::learn
+
+    %% Mixture
+    B1 --> SUMR("(Σ)")
+    B2 --> SUMR
+    B3 --> SUMR
+    BK --> SUMR
+    GATE -. "weights  p_i" .-> SUMR
+
+    %% Shared projection to vocab
+    SUMR --> A["Shared vocab projection  A:  ℝ^r → ℝ^V\n[learnable]"]:::learn
+    A --> LOGITS["Logits  /  p(x_{t+1} | x_{<= t})"]:::op
+  end

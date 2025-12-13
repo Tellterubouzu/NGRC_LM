@@ -1,0 +1,107 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+# 日本語フォントの設定
+plt.rcParams['font.family'] = 'DejaVu Sans'
+
+# CSVファイルを読み込み
+esn_df = pd.read_csv('../ESN/run_table_metrics_65536_0827.csv')
+gpt_df = pd.read_csv('../ESN/run_table_gpt.csv')
+esn_mro_df = pd.read_csv('run_table_metrics.csv')
+        
+# # ESNデータを esnrho_act が 0.8〜1.0 に該当する行にフィルタ
+# esn_df = esn_df[(esn_df['rho_act'] >= 0.8) & (esn_df['rho_act'] <= 1.0)]
+
+# final_val_perplexityの値を取得
+esn_val_perplexity_values = esn_df['final_val_perplexity'].values
+gpt_val_perplexity_values = gpt_df['final_val_perplexity'].values
+esn_mro_val_perplexity_values = esn_mro_df['final_val_perplexity'].values
+# 図のサイズを設定
+plt.figure(figsize=(6, 4))
+
+# 箱ひげ図を作成（ESNとGPTのデータを同じ図に描画）
+box_plot = plt.boxplot([esn_val_perplexity_values,  esn_mro_val_perplexity_values,gpt_val_perplexity_values], patch_artist=True)
+
+# 各データの箱の色を設定
+box_plot['boxes'][0].set_facecolor('lightblue')
+box_plot['boxes'][0].set_alpha(0.7)
+box_plot['boxes'][1].set_facecolor('lightgreen')
+box_plot['boxes'][1].set_alpha(0.7)
+box_plot['boxes'][2].set_facecolor('lightcoral')
+box_plot['boxes'][2].set_alpha(0.7)
+# タイトルを設定（LaTeX形式）
+# plt.title(r'$\mathrm{PPL}_{\mathrm{val}}^{(\mathrm{final})}$', fontsize=16, pad=20)
+
+# x軸のラベルを設定
+plt.xticks([1, 2, 3], ['ESN-53M', 'ESN-53M(MRO)', 'GPT-2-54M'], fontsize=14)
+
+# y軸のラベルを設定
+plt.ylabel(r'$\mathrm{PPL}_{\mathrm{val}}^{(\mathrm{final})}$', fontsize=14)
+
+
+# グリッドを追加
+plt.grid(True, alpha=0.3)
+
+# 統計情報を表示
+esn_stats_text = f'mean: 1812.06\n'
+esn_stats_text += f'median: 551.42\n'
+esn_stats_text += f'std: 3049.44\n'
+esn_stats_text += f'min: 139.42\n'
+esn_stats_text += f'max: 13359.73'
+
+
+esn_mro_stats_text = f'mean: {np.mean(esn_mro_val_perplexity_values):.2f}\n'
+esn_mro_stats_text += f'median: {np.median(esn_mro_val_perplexity_values):.2f}\n'
+esn_mro_stats_text += f'std: {np.std(esn_mro_val_perplexity_values):.2f}\n'
+esn_mro_stats_text += f'min: {np.min(esn_mro_val_perplexity_values):.2f}\n'
+esn_mro_stats_text += f'max: {np.max(esn_mro_val_perplexity_values):.2f}'
+
+gpt_stats_text = f'mean: {np.mean(gpt_val_perplexity_values):.2f}\n'
+gpt_stats_text += f'median: {np.median(gpt_val_perplexity_values):.2f}\n'
+gpt_stats_text += f'std: {np.std(gpt_val_perplexity_values):.2f}\n'
+gpt_stats_text += f'min: {np.min(gpt_val_perplexity_values):.2f}\n'
+gpt_stats_text += f'max: {np.max(gpt_val_perplexity_values):.2f}'
+
+plt.text(0.02, 0.98, esn_stats_text, transform=plt.gca().transAxes, 
+         verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+plt.text(0.5, 0.98, gpt_stats_text, transform=plt.gca().transAxes, 
+         verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+plt.text(0.8, 0.98, esn_mro_stats_text, transform=plt.gca().transAxes, 
+         verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+# レイアウトを調整
+plt.tight_layout()
+
+# 画像を保存
+plt.savefig('val_perplexity_boxplot_rho_act.png', dpi=300, bbox_inches='tight')
+plt.savefig('val_perplexity_boxplot_rho_act.pdf', bbox_inches='tight')
+
+print("箱ひげ図を保存しました:")
+print("- val_perplexity_boxplot.png")
+print("- val_perplexity_boxplot.pdf")
+
+
+
+# 統計情報を表示
+print(f"\n統計情報:")
+print(f"データ数: {len(esn_val_perplexity_values)}")
+print(f"データ数: {len(esn_mro_val_perplexity_values)}")
+print(f"データ数: {len(gpt_val_perplexity_values)}")
+print(f"平均: {np.mean(esn_val_perplexity_values):.2f}")
+print(f"平均: {np.mean(esn_mro_val_perplexity_values):.2f}")
+print(f"平均: {np.mean(gpt_val_perplexity_values):.2f}")
+print(f"中央値: {np.median(esn_val_perplexity_values):.2f}")
+print(f"中央値: {np.median(esn_mro_val_perplexity_values):.2f}")
+print(f"中央値: {np.median(gpt_val_perplexity_values):.2f}")
+print(f"標準偏差: {np.std(esn_val_perplexity_values):.2f}")
+print(f"標準偏差: {np.std(esn_mro_val_perplexity_values):.2f}")
+print(f"標準偏差: {np.std(gpt_val_perplexity_values):.2f}")
+print(f"最小値: {np.min(esn_val_perplexity_values):.2f}")
+print(f"最小値: {np.min(esn_mro_val_perplexity_values):.2f}")
+print(f"最小値: {np.min(gpt_val_perplexity_values):.2f}")
+print(f"最大値: {np.max(esn_val_perplexity_values):.2f}")
+print(f"最大値: {np.max(esn_mro_val_perplexity_values):.2f}")
+print(f"最大値: {np.max(gpt_val_perplexity_values):.2f}")
+plt.show()
+

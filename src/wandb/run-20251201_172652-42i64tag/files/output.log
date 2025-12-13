@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    main()
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 746, in NGRC_experiment
+    logits, loss = model(ids, labels=ids)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 336, in forward
+    loss = F.cross_entropy(logits_shift, targets)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/functional.py", line 3494, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.95 GiB. GPU 0 has a total capacity of 15.45 GiB of which 184.06 MiB is free. Process 66962 has 6.66 GiB memory in use. Including non-PyTorch memory, this process has 8.60 GiB memory in use. Of the allocated memory 5.78 GiB is allocated by PyTorch, and 2.54 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

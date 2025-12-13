@@ -1,0 +1,126 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            xarx4hk8q2f4ik4srr8b417a8oq4hzol:
+                codePath: ngrc_lm.py
+                codePathLocal: ngrc_lm.py
+                cpu_count: 20
+                cpu_count_logical: 20
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "1966736678912"
+                        used: "64677486592"
+                email: shimomura.teruki174@mail.kyutech.jp
+                executable: /home/bitell/miniconda3/envs/ais/bin/python
+                gpu: NVIDIA GeForce RTX 5070 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 8960
+                      memoryTotal: "17094934528"
+                      name: NVIDIA GeForce RTX 5070 Ti
+                      uuid: GPU-3e99f84b-3ee8-6fa1-452d-9f794eee21ab
+                host: bitell
+                memory:
+                    total: "67107074048"
+                os: Linux-6.14.0-36-generic-x86_64-with-glibc2.39
+                program: /home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py
+                python: CPython 3.11.14
+                root: /home/bitell/Devenv/NGRC/NGRC_LM/src
+                startedAt: "2025-12-01T06:25:42.136504Z"
+                writerId: xarx4hk8q2f4ik4srr8b417a8oq4hzol
+        m: []
+        python_version: 3.11.14
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.11.14
+            "5": 0.23.0
+            "6": 4.57.3
+            "12": 0.23.0
+            "13": linux-x86_64
+api_file:
+    value: api.txt
+beta1:
+    value: 0.9
+beta2:
+    value: 0.95
+dataset_path:
+    value: HuggingFaceFW/fineweb-edu
+deepspeed_config:
+    value: ds_config.json
+enable_compile:
+    value: false
+epochs:
+    value: 1
+generate_every:
+    value: 1000
+grad_clip_norm:
+    value: 0
+hf_private:
+    value: true
+hf_repo:
+    value: null
+learning_rate:
+    value: 0.0005
+local_batch_size:
+    value: 4
+local_rank:
+    value: 0
+ngrc_d_model:
+    value: 64
+ngrc_embed_frozen:
+    value: false
+ngrc_feature:
+    value: z_z2
+ngrc_lag:
+    value: 16
+ngrc_loss:
+    value: ce
+ngrc_max_cross_terms:
+    value: 256
+ngrc_ridge_alpha:
+    value: 0.001
+ngrc_ridge_max_batches:
+    value: 200
+ngrc_training:
+    value: sgd
+save_checkpoint_every_steps:
+    value: 2000
+seq_len:
+    value: 256
+tokenizer_path:
+    value: meta-llama/Llama-2-7b-hf
+total_tokens:
+    value: 1e+08
+use_deepspeed:
+    value: false
+use_gpu_amount:
+    value: 1
+val_dataset_path:
+    value: vesteinn/babylm
+validate_every_steps:
+    value: 200
+wandb_project:
+    value: NGRC_LanguageModel
+wandb_run_name:
+    value: null
+weight_decay:
+    value: 0.1

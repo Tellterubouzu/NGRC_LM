@@ -1,0 +1,15 @@
+[log] train loss: 7.047036647796631, step: 500, tokens_seen_global: 2048000, tokens_per_sec_global: 4335.007722713572, max_mem_mb: 2036.067328
+Traceback (most recent call last):
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    main()
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 761, in NGRC_experiment
+    log_gradients_wandb(model, step, tag="preclip")
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 166, in log_gradients_wandb
+    gcpu = gf.to(dtype=torch.float32, device="cpu")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

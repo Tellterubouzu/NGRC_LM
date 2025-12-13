@@ -1,0 +1,2 @@
+Training is stopped because val_loss is too high: 10.8125
+HF upload skipped (token absent or repo not specified).

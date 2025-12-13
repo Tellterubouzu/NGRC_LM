@@ -1,0 +1,8 @@
+sentencepiece
+torch
+torchvision
+torchaudio
+transformers
+datasets
+wandb
+deepspeed

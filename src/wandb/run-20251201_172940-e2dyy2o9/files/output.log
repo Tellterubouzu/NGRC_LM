@@ -1,0 +1,30 @@
+[log] train loss: 6.6873884201049805, step: 500, tokens_seen_global: 4096000, tokens_per_sec_global: 1927.913886362502, max_mem_mb: 4972.168704
+[log] train loss: 7.336025714874268, step: 1000, tokens_seen_global: 8192000, tokens_per_sec_global: 1930.8431709329104, max_mem_mb: 4972.168704
+[log] train loss: 7.858489036560059, step: 1500, tokens_seen_global: 12288000, tokens_per_sec_global: 1937.0204129772242, max_mem_mb: 4972.169728
+[log] train loss: 7.8915839195251465, step: 2000, tokens_seen_global: 16384000, tokens_per_sec_global: 1939.4618195282317, max_mem_mb: 4972.169728
+[log] train loss: 7.818394184112549, step: 2500, tokens_seen_global: 20480000, tokens_per_sec_global: 1935.9545269582113, max_mem_mb: 4972.169728
+[log] train loss: 7.785333633422852, step: 3000, tokens_seen_global: 24576000, tokens_per_sec_global: 1933.7185049258217, max_mem_mb: 4972.169728
+[log] train loss: 6.827306747436523, step: 3500, tokens_seen_global: 28672000, tokens_per_sec_global: 1930.779677519461, max_mem_mb: 4972.169728
+[log] train loss: 7.217667102813721, step: 4000, tokens_seen_global: 32768000, tokens_per_sec_global: 1925.0927222199134, max_mem_mb: 4972.169728
+[log] train loss: 8.160171508789062, step: 4500, tokens_seen_global: 36864000, tokens_per_sec_global: 1924.2559122750072, max_mem_mb: 4972.169728
+[log] train loss: 7.2991557121276855, step: 5000, tokens_seen_global: 40960000, tokens_per_sec_global: 1925.4555726499188, max_mem_mb: 4972.169728
+[log] train loss: 6.959155559539795, step: 5500, tokens_seen_global: 45056000, tokens_per_sec_global: 1924.0118299390208, max_mem_mb: 4972.169728
+[log] train loss: 6.960669040679932, step: 6000, tokens_seen_global: 49152000, tokens_per_sec_global: 1922.1409954534931, max_mem_mb: 4972.169728
+[log] train loss: 6.796790599822998, step: 6500, tokens_seen_global: 53248000, tokens_per_sec_global: 1920.7473340413198, max_mem_mb: 4972.169728
+[log] train loss: 6.6938252449035645, step: 7000, tokens_seen_global: 57344000, tokens_per_sec_global: 1919.5312855690013, max_mem_mb: 4972.169728
+[log] train loss: 6.801475524902344, step: 7500, tokens_seen_global: 61440000, tokens_per_sec_global: 1918.903839893949, max_mem_mb: 4972.169728
+[log] train loss: 6.643872261047363, step: 8000, tokens_seen_global: 65536000, tokens_per_sec_global: 1918.4158910476203, max_mem_mb: 4972.169728
+[log] train loss: 6.513311862945557, step: 8500, tokens_seen_global: 69632000, tokens_per_sec_global: 1917.8038822495655, max_mem_mb: 4972.169728
+[log] train loss: 7.0766682624816895, step: 9000, tokens_seen_global: 73728000, tokens_per_sec_global: 1916.8851254351225, max_mem_mb: 4972.169728
+[log] train loss: 6.398538112640381, step: 9500, tokens_seen_global: 77824000, tokens_per_sec_global: 1915.2316179165196, max_mem_mb: 4972.169728
+[log] train loss: 5.7351813316345215, step: 10000, tokens_seen_global: 81920000, tokens_per_sec_global: 1914.8934738383466, max_mem_mb: 4972.169728
+[log] train loss: 6.696361541748047, step: 10500, tokens_seen_global: 86016000, tokens_per_sec_global: 1915.5233770287662, max_mem_mb: 4972.169728
+[log] train loss: 6.939916610717773, step: 11000, tokens_seen_global: 90112000, tokens_per_sec_global: 1921.3535457854396, max_mem_mb: 4972.169728
+[log] train loss: 6.994791030883789, step: 11500, tokens_seen_global: 94208000, tokens_per_sec_global: 1928.2625328211595, max_mem_mb: 4972.169728
+[log] train loss: 6.528828144073486, step: 12000, tokens_seen_global: 98304000, tokens_per_sec_global: 1935.3426677486648, max_mem_mb: 4972.169728
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Repo card metadata block was not found. Setting CardData to empty.
+Computing mean-so-far PPL: 100%|██████████████████████████████████████████████████████████████████████████████| 100/100 [00:04<00:00, 23.26it/s]
+Inference time: 4.30s, Tokens/sec: 47605.14, Memory: 2615.86MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(266.27M_d128_lag32_featz_z2_lr0.001_bs32_seq256_20251201-172929_report.txt

@@ -1,0 +1,10 @@
+[NGRC] using closed-form ridge to fit readout (no SGD loop).
+[NGRC ridge] collected 1632000 samples over 200 batches
+[NGRC ridge] readout weight updated by closed-form ridge.
+[NGRC ridge] validation loss after ridge fit: 10.3750, ppl=32048.32
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Repo card metadata block was not found. Setting CardData to empty.
+Computing mean-so-far PPL: 100%|██████████████████████████████████████████████████████████████████████████████████| 100/100 [00:04<00:00, 21.57it/s]
+Inference time: 4.64s, Tokens/sec: 44141.82, Memory: 1018.29MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(266.27M_d128_lag32_featz_z2_lr0.001_bs32_seq256_20251201-154804_report.txt
