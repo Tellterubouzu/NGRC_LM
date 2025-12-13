@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    main()
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 742, in NGRC_experiment
+    for step, batch in enumerate(train_loader, start=1):
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1491, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1443, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1284, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/threading.py", line 331, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

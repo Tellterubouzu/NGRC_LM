@@ -1,0 +1,36 @@
+[log] train loss: 9.684418678283691, step: 500, tokens_seen_global: 4096000, tokens_per_sec_global: 4214.536498797282, max_mem_mb: 4118.62784
+[log] train loss: 8.152742385864258, step: 1000, tokens_seen_global: 8192000, tokens_per_sec_global: 4241.881287451262, max_mem_mb: 4118.62784
+[log] train loss: 7.647275447845459, step: 1500, tokens_seen_global: 12288000, tokens_per_sec_global: 4239.25438359516, max_mem_mb: 4118.628864
+Traceback (most recent call last):
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    main()
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 836, in NGRC_experiment
+    generated = sample_sequence(
+                ^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 413, in sample_sequence
+    outputs = model(generated)
+              ^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm.py", line 326, in forward
+    logits = self.readout(phi)        # (B,T,V)
+             ^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bitell/miniconda3/envs/ais/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUBLAS_STATUS_INTERNAL_ERROR when calling `cublasGemmEx( handle, opa, opb, m, n, k, &falpha, a, CUDA_R_16BF, lda, b, CUDA_R_16BF, ldb, &fbeta, c, CUDA_R_16BF, ldc, compute_type, CUBLAS_GEMM_DEFAULT_TENSOR_OP)`

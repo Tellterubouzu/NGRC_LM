@@ -1,0 +1,40 @@
+{
+  "os": "Linux-6.14.0-36-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-12-13T09:58:37.648456Z",
+  "program": "/home/bitell/Devenv/NGRC/NGRC_LM/src/ngrc_lm_low_rank.py",
+  "codePath": "src/ngrc_lm_low_rank.py",
+  "codePathLocal": "ngrc_lm_low_rank.py",
+  "git": {
+    "remote": "https://github.com/Tellterubouzu/NGRC_LM",
+    "commit": "d451279315ce33390b7e207eefe8b28712e2f081"
+  },
+  "email": "shimomura.teruki174@mail.kyutech.jp",
+  "root": "/home/bitell/Devenv/NGRC/NGRC_LM/src",
+  "host": "bitell",
+  "executable": "/home/bitell/miniconda3/envs/ais/bin/python",
+  "cpu_count": 20,
+  "cpu_count_logical": 20,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1966736678912",
+      "used": "133659312128"
+    }
+  },
+  "memory": {
+    "total": "67107074048"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 5070 Ti",
+      "memoryTotal": "17094934528",
+      "cudaCores": 8960,
+      "architecture": "Blackwell",
+      "uuid": "GPU-3e99f84b-3ee8-6fa1-452d-9f794eee21ab"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "fm9xi9gmvrqvnkmm02edimqncobigb8b"
+}

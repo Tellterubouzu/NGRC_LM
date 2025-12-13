@@ -199,11 +199,7 @@ def log_gradients_wandb(model, step: int, tag: str = "preclip", topk: int = 5):
 class NGRC_LM(nn.Module):
     """
     NGRC (NVAR) ベースの言語モデル。
-    - 入力: token ids (B, T)
-    - 埋め込み: nn.Embedding(vocab_size, d_model)
-    - 特徴: 遅延 L ステップ分の埋め込みを連結 → z ∈ R^{L*d_model}
-            φ(z) = [1, z, z^2, (optional) random cross terms]
-    - 出力: 線形 readout
+    φ(z) = [1, z, z^2, ..., z^P] (+ optional cross terms)
     """
 
     def __init__(
@@ -211,20 +207,26 @@ class NGRC_LM(nn.Module):
         vocab_size: int,
         d_model: int = 64,
         lag: int = 16,
-        feature_type: str = "z_z2",        # "z", "z_z2", "z_z2_cross"
-        max_cross_terms: int = 256,
+        poly_degree: int = 2,          # ★ 多項式次数
+        max_cross_terms: int = 0,      # ★ 0 なら cross term なし
+        readout_rank: int = 512,       # ★ 低ランク readout 次元
         embed_trainable: bool = True,
-        loss_type: str = "ce",             # "ce" or "mse"
+        loss_type: str = "ce",
         device: torch.device = torch.device("cpu"),
     ):
         super().__init__()
         self.vocab_size = vocab_size
         self.d_model = d_model
         self.lag = lag
-        self.feature_type = feature_type
+        self.poly_degree = poly_degree
         self.max_cross_terms = max_cross_terms
         self.loss_type = loss_type
-        self.device = device
+
+        if poly_degree < 1:
+            raise ValueError("poly_degree must be >= 1")
+        if readout_rank <= 0:
+            raise ValueError("readout_rank must be >= 1")
+        self.readout_rank = readout_rank
 
         # 埋め込み
         self.embed = nn.Embedding(vocab_size, d_model)
@@ -233,30 +235,32 @@ class NGRC_LM(nn.Module):
                 p.requires_grad = False
 
         base_dim = self.lag * self.d_model
-        self.cross_i = None
-        self.cross_j = None
+        self.base_dim = base_dim
 
-        if self.feature_type == "z_z2_cross" and self.max_cross_terms > 0:
+        # cross term 用 index（使わないなら max_cross_terms=0 にしておけばOK）
+        if self.max_cross_terms > 0:
             i_idx = torch.randint(0, base_dim, (self.max_cross_terms,), device=device)
             j_idx = torch.randint(0, base_dim, (self.max_cross_terms,), device=device)
             self.register_buffer("cross_i", i_idx)
             self.register_buffer("cross_j", j_idx)
             cross_dim = self.max_cross_terms
         else:
+            self.cross_i = None
+            self.cross_j = None
             cross_dim = 0
 
-        # φ(z) の次元: 1 (bias) + z + z^2 + cross
-        phi_dim = 1 + base_dim  # z
-        if self.feature_type in ("z_z2", "z_z2_cross"):
-            phi_dim += base_dim  # z^2
-        phi_dim += cross_dim
+        # φ(z) の次元: 1 + base_dim * poly_degree + cross_dim
+        phi_dim = 1 + base_dim * self.poly_degree + cross_dim
         self.phi_dim = phi_dim
 
-        self.readout = nn.Linear(phi_dim, vocab_size, bias=False)
+        # 低ランク readout: phi_dim → readout_rank → vocab
+        self.readout_proj = nn.Linear(phi_dim, readout_rank, bias=False)
+        self.readout_out = nn.Linear(readout_rank, vocab_size, bias=False)
 
         print(
             f"NGRC_LM initialized: vocab={vocab_size}, d_model={d_model}, "
-            f"lag={lag}, feature_type={feature_type}, phi_dim={phi_dim}, "
+            f"lag={lag}, poly_degree={poly_degree}, "
+            f"phi_dim={phi_dim}, readout_rank={readout_rank}, "
             f"embed_trainable={embed_trainable}, loss_type={loss_type}"
         )
 
@@ -275,15 +279,22 @@ class NGRC_LM(nn.Module):
         B, T, D = z_flat.shape
         feats = []
 
+        # 1) bias
         ones = torch.ones(B, T, 1, dtype=z_flat.dtype, device=z_flat.device)
-        feats.append(ones)      # bias
-        feats.append(z_flat)    # z
+        feats.append(ones)
 
-        if self.feature_type in ("z_z2", "z_z2_cross"):
-            z2 = z_flat * z_flat
-            feats.append(z2)
+        # 2) z (一次)
+        feats.append(z_flat)
 
-        if self.feature_type == "z_z2_cross" and self.cross_i is not None:
+        # 3) z^2, ..., z^P
+        if self.poly_degree >= 2:
+            z_power = z_flat
+            for deg in range(2, self.poly_degree + 1):
+                z_power = z_power * z_flat  # 要素ごとの掛け算で z^deg
+                feats.append(z_power)
+
+        # 4) cross terms（使うなら）
+        if self.cross_i is not None and self.cross_j is not None:
             z_i = z_flat[..., self.cross_i]  # (B,T,M)
             z_j = z_flat[..., self.cross_j]
             cross = z_i * z_j
@@ -294,41 +305,29 @@ class NGRC_LM(nn.Module):
 
     @torch.no_grad()
     def compute_phi_and_targets(self, x: torch.LongTensor) -> tuple[torch.Tensor, torch.Tensor]:
-        """
-        x: (B, T)
-        戻り:
-          phi_flat: (N, phi_dim)  N = B*(T-1)
-          targets: (N,)
-        """
         device = next(self.parameters()).device
         x = x.to(device)
-        emb = self.embed(x)               # (B,T,d_model)
-        z_flat = self._build_lagged(emb)  # (B,T,L*d_model)
-        phi = self._build_phi(z_flat)     # (B,T,phi_dim)
+        emb = self.embed(x)
+        z_flat = self._build_lagged(emb)
+        phi = self._build_phi(z_flat)
 
-        phi_cut = phi[:, :-1, :]          # (B,T-1,phi_dim)
-        y = x[:, 1:]                      # (B,T-1)
+        phi_cut = phi[:, :-1, :]
+        y = x[:, 1:]
         phi_flat = phi_cut.reshape(-1, self.phi_dim)
         targets = y.reshape(-1)
         return phi_flat, targets
 
     def forward(self, x: torch.LongTensor, labels: torch.LongTensor | None = None):
-        """
-        x: (B, T)
-        """
         device = next(self.parameters()).device
         x = x.to(device)
         B, T = x.shape
 
-        emb = self.embed(x)               # (B,T,d_model)
-        z_flat = self._build_lagged(emb)  # (B,T,L*d_model)
-        phi = self._build_phi(z_flat)     # (B,T,phi_dim)
-        logits = self.readout(phi)        # (B,T,V)
-        
-        # logits の異常値をクリップ（inf/nan を防ぐ）
-        logits = torch.clamp(logits, min=-1e4, max=1e4)
-        logits = torch.where(torch.isnan(logits), torch.zeros_like(logits), logits)
-        logits = torch.where(torch.isinf(logits), torch.zeros_like(logits), logits)
+        emb = self.embed(x)
+        z_flat = self._build_lagged(emb)
+        phi = self._build_phi(z_flat)
+
+        h = self.readout_proj(phi)          # (B,T,readout_rank)
+        logits = self.readout_out(h)        # (B,T,vocab)
 
         if labels is None:
             return logits
@@ -348,7 +347,6 @@ class NGRC_LM(nn.Module):
 
         return logits, loss
 
-
 # =============================================================================
 # NGRC ridge fitting helper
 # =============================================================================
@@ -359,12 +357,18 @@ def fit_ngrc_ridge_readout(model: NGRC_LM,
                            max_batches: int,
                            device: torch.device):
     """
-    NGRC_LM の readout を closed-form ridge で一発フィットする。
-    G = Φ^T Φ, H = Φ^T Y を逐次計算し、(G + αI)^{-1} H を解く。
+    NGRC_LM の readout を closed-form ridge + SVD で低ランクフィットする。
+    1. G = Φ^T Φ, H = Φ^T Y
+    2. (G + αI) W = H を解いて W_full (phi_dim × vocab) を得る
+    3. W_total = W_full^T ∈ R^{vocab × phi_dim} に SVD
+    4. rank = model.readout_rank でランク制限
+    5. W_total ≈ (U_r Σ_r^{1/2}) @ (Σ_r^{1/2} V_r^T) を
+       readout_out.weight, readout_proj.weight に割り当て
     """
     model.eval()
     phi_dim = model.phi_dim
     vocab_size = model.vocab_size
+    rank = model.readout_rank
 
     G = torch.zeros(phi_dim, phi_dim, dtype=torch.float32, device="cpu")
     H = torch.zeros(phi_dim, vocab_size, dtype=torch.float32, device="cpu")
@@ -390,13 +394,37 @@ def fit_ngrc_ridge_readout(model: NGRC_LM,
 
     I = torch.eye(phi_dim, dtype=torch.float32, device="cpu")
     G_reg = G + alpha * I
-    W = torch.linalg.solve(G_reg, H)  # (phi_dim, vocab)
+    W_full = torch.linalg.solve(G_reg, H)  # (phi_dim, vocab)
 
-    W_gpu = W.t().to(device=device, dtype=next(model.parameters()).dtype)
-    model.readout.weight.data.copy_(W_gpu)
+    # W_total: vocab × phi_dim
+    W_total = W_full.t().contiguous()
 
-    print("[NGRC ridge] readout weight updated by closed-form ridge.")
+    # SVD で rank 制限
+    m = min(W_total.shape[0], W_total.shape[1])
+    r = min(rank, m)
+    print(f"[NGRC ridge] SVD for low-rank readout: target rank={rank}, effective rank={r}")
+    U, S, Vh = torch.linalg.svd(W_total, full_matrices=False)  # U:(vocab,m), S:(m,), Vh:(m,phi_dim)
 
+    U_r = U[:, :r]          # (vocab,r)
+    S_r = S[:r]             # (r,)
+    Vh_r = Vh[:r, :]        # (r,phi_dim)
+
+    # W_total ≈ (U_r Σ_r^{1/2}) @ (Σ_r^{1/2} Vh_r)
+    s_sqrt = torch.sqrt(S_r)                               # (r,)
+    weight_out = U_r * s_sqrt.unsqueeze(0)                 # (vocab,r)
+    weight_proj = s_sqrt.unsqueeze(1) * Vh_r               # (r,phi_dim)
+
+    param_device = next(model.parameters()).device
+    param_dtype = next(model.parameters()).dtype
+
+    model.readout_out.weight.data.copy_(
+        weight_out.to(device=param_device, dtype=param_dtype)
+    )
+    model.readout_proj.weight.data.copy_(
+        weight_proj.to(device=param_device, dtype=param_dtype)
+    )
+
+    print("[NGRC ridge] readout weights updated by low-rank SVD approximation.")
 
 # =============================================================================
 # Sampling util
@@ -524,9 +552,9 @@ def parse_args_ngrc():
     parser.add_argument("--use_deepspeed", action="store_true")
 
     # training hyperparameters
-    parser.add_argument("--local_batch_size", type=int, default=32)
+    parser.add_argument("--local_batch_size", type=int, default=50)
     parser.add_argument("--use_gpu_amount", type=int, default=max(torch.cuda.device_count(), 1))
-    parser.add_argument("--learning_rate", type=float, default=1e-4)
+    parser.add_argument("--learning_rate", type=float, default=5e-4)
     parser.add_argument("--validate_every_steps", type=int, default=200)
     parser.add_argument("--save_checkpoint_every_steps", type=int, default=200)
     parser.add_argument("--generate_every", type=int, default=1000)
@@ -540,10 +568,11 @@ def parse_args_ngrc():
     parser.add_argument("--tokenizer_path", type=str, default="meta-llama/Llama-2-7b-hf")
 
     # NGRC hyperparams
-    parser.add_argument("--ngrc_d_model", type=int, default=128)
-    parser.add_argument("--ngrc_lag", type=int, default=32)
-    parser.add_argument("--ngrc_feature", choices=["z", "z_z2", "z_z2_cross"], default="z_z2")
-    parser.add_argument("--ngrc_max_cross_terms", type=int, default=256)
+    parser.add_argument("--ngrc_d_model", type=int, default=128 ,help="埋め込み次元数")
+    parser.add_argument("--ngrc_lag", type=int, default=32, help="ラグ")
+    parser.add_argument("--ngrc_poly_degree", type=int, default=2, help="多項式次数")
+    parser.add_argument("--ngrc_max_cross_terms", type=int, default=256, help="クロス項の最大数")
+    parser.add_argument("--ngrc_readout_rank", type=int, default=512, help="低ランク readout 次元")
     parser.add_argument(
         "--ngrc_embed_frozen",
         action="store_true",
@@ -564,8 +593,8 @@ def parse_args_ngrc():
     parser.add_argument(
         "--ngrc_ridge_alpha",
         type=float,
-        default=1e-3,
-        help="Ridge regularization alpha (for ngrc_training='ridge').",
+        default=1e-3,help="Ridge 正則化係数 (ngrc_training='ridge' の場合)",
+
     )
     parser.add_argument(
         "--ngrc_ridge_max_batches",
@@ -652,8 +681,9 @@ def NGRC_experiment(lr):
         vocab_size=tokenizer.vocab_size,
         d_model=args.ngrc_d_model,
         lag=args.ngrc_lag,
-        feature_type=args.ngrc_feature,
+        poly_degree=args.ngrc_poly_degree,
         max_cross_terms=args.ngrc_max_cross_terms,
+        readout_rank=args.ngrc_readout_rank,
         embed_trainable=embed_trainable,
         loss_type=args.ngrc_loss,
         device=device,
@@ -721,7 +751,7 @@ def NGRC_experiment(lr):
     if (not distributed) or args.local_rank == 0:
         run_name = args.wandb_run_name or (
             f"NGRC_LM({param_millions:.2f}M_d{args.ngrc_d_model}"
-            f"_lag{args.ngrc_lag}_feat{args.ngrc_feature}_lr{args.learning_rate}"
+            f"_lag{args.ngrc_lag}_poly{args.ngrc_poly_degree}_rank{args.ngrc_readout_rank}_lr{args.learning_rate}"
             f"_bs{args.local_batch_size}_seq{args.seq_len}_{run_id}"
         )
         wandb.init(project=args.wandb_project, name=run_name, config=vars(args))
@@ -840,7 +870,7 @@ def NGRC_experiment(lr):
                 ckpt_name = f"checkpoint_step{step}_tokens{tokens_seen_global}.pt"
                 save_dir = (
                     f"./checkpoint_ngrc/NGRC_LM({param_millions:.2f}M_d{args.ngrc_d_model}"
-                    f"_lag{args.ngrc_lag}_feat{args.ngrc_feature}_{run_id}"
+                    f"_lag{args.ngrc_lag}_poly{args.ngrc_poly_degree}_rank{args.ngrc_readout_rank}_{run_id}"
                 )
                 os.makedirs(save_dir, exist_ok=True)
                 if distributed:
