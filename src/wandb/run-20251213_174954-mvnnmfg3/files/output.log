@@ -10,3 +10,84 @@
 [log] train loss: 6.789404392242432, step: 5000, tokens_seen_global: 40960000, tokens_per_sec_global: 12081.970256267323, max_mem_mb: 4122.593792
 [log] train loss: 6.5532145500183105, step: 5500, tokens_seen_global: 45056000, tokens_per_sec_global: 12081.741877655468, max_mem_mb: 4122.593792
 [log] train loss: 6.626952171325684, step: 6000, tokens_seen_global: 49152000, tokens_per_sec_global: 12059.631367215572, max_mem_mb: 4122.593792
+[log] train loss: 6.503450870513916, step: 6500, tokens_seen_global: 53248000, tokens_per_sec_global: 12054.970108319734, max_mem_mb: 4122.593792
+[log] train loss: 6.105899333953857, step: 7000, tokens_seen_global: 57344000, tokens_per_sec_global: 12053.517104951678, max_mem_mb: 4122.593792
+[log] train loss: 6.503847599029541, step: 7500, tokens_seen_global: 61440000, tokens_per_sec_global: 12065.019407161048, max_mem_mb: 4122.593792
+[log] train loss: 6.385434150695801, step: 8000, tokens_seen_global: 65536000, tokens_per_sec_global: 12074.634719233978, max_mem_mb: 4122.593792
+[log] train loss: 6.268289566040039, step: 8500, tokens_seen_global: 69632000, tokens_per_sec_global: 12086.764287268794, max_mem_mb: 4122.593792
+[log] train loss: 6.724170684814453, step: 9000, tokens_seen_global: 73728000, tokens_per_sec_global: 12098.555207454385, max_mem_mb: 4122.593792
+[log] train loss: 6.173764705657959, step: 9500, tokens_seen_global: 77824000, tokens_per_sec_global: 12105.311691750032, max_mem_mb: 4122.593792
+[log] train loss: 6.506987571716309, step: 10000, tokens_seen_global: 81920000, tokens_per_sec_global: 12112.009611661486, max_mem_mb: 4122.593792
+[log] train loss: 6.2491984367370605, step: 10500, tokens_seen_global: 86016000, tokens_per_sec_global: 12107.251154285053, max_mem_mb: 4122.593792
+[log] train loss: 6.661066055297852, step: 11000, tokens_seen_global: 90112000, tokens_per_sec_global: 12106.346713175868, max_mem_mb: 4122.593792
+[log] train loss: 6.246923446655273, step: 11500, tokens_seen_global: 94208000, tokens_per_sec_global: 12091.667350444432, max_mem_mb: 4122.593792
+[log] train loss: 6.8477911949157715, step: 12000, tokens_seen_global: 98304000, tokens_per_sec_global: 12090.985596947618, max_mem_mb: 4122.593792
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Repo card metadata block was not found. Setting CardData to empty.
+Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.44it/s]
+Inference time: 4.90s, Tokens/sec: 41809.91, Memory: 1842.57MB
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    del train_loader
+    ^^^^^^
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    wandb.finish()
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 997, in NGRC_experiment
+    }
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 444, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2028, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1739, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1566, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 682, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 54, in history_dict_to_json
+    payload[key] = val_to_json(
+                   ^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 151, in val_to_json
+    _log_table_artifact(val, key, run)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 198, in _log_table_artifact
+    art = InternalArtifact(f"run-{run.id}-{key}", "run_table")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/_internal_artifact.py", line 51, in __init__
+    super().__init__(
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact.py", line 271, in __init__
+    ArtifactManifestV1(storage_policy=make_storage_policy())
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/_factories.py", line 17, in make_storage_policy
+    return WandbStoragePolicy.from_config({"storageLayout": layout})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/storage_policies/wandb_storage_policy.py", line 101, in from_config
+    return cls(config=config, api=api)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/storage_policies/wandb_storage_policy.py", line 109, in __init__
+    self._cache = cache or get_artifact_file_cache()
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 251, in get_artifact_file_cache
+    return _build_artifact_file_cache(env.get_cache_dir() / "artifacts")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 247, in _build_artifact_file_cache
+    return ArtifactFileCache(cache_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 47, in __init__
+    self._sys_umask = _get_sys_umask_threadsafe()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 35, in _get_sys_umask_threadsafe
+    return int(subprocess.check_output(umask_cmd))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: b'User customization module loaded!\n23\n'

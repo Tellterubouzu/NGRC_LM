@@ -39,3 +39,99 @@ huggingface/tokenizers: The current process just got forked, after parallelism h
 To disable this warning, you can either:
 	- Avoid using `tokenizers` before the fork if possible
 	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 7.214250087738037, step: 500, tokens_seen_global: 4096000, tokens_per_sec_global: 12096.580967241742, max_mem_mb: 4122.592768
+[log] train loss: 7.0067949295043945, step: 1000, tokens_seen_global: 8192000, tokens_per_sec_global: 12206.55040405629, max_mem_mb: 4122.592768
+[log] train loss: 6.644824028015137, step: 1500, tokens_seen_global: 12288000, tokens_per_sec_global: 12191.680554304536, max_mem_mb: 4122.593792
+[log] train loss: 7.632451057434082, step: 2000, tokens_seen_global: 16384000, tokens_per_sec_global: 12208.53883326558, max_mem_mb: 4122.593792
+[log] train loss: 6.978268146514893, step: 2500, tokens_seen_global: 20480000, tokens_per_sec_global: 12168.24074083733, max_mem_mb: 4122.593792
+[log] train loss: 7.408318996429443, step: 3000, tokens_seen_global: 24576000, tokens_per_sec_global: 12155.639352225306, max_mem_mb: 4122.593792
+[log] train loss: 6.69814920425415, step: 3500, tokens_seen_global: 28672000, tokens_per_sec_global: 12091.76295579947, max_mem_mb: 4122.593792
+[log] train loss: 7.225633144378662, step: 4000, tokens_seen_global: 32768000, tokens_per_sec_global: 12085.269593492896, max_mem_mb: 4122.593792
+[log] train loss: 6.998079776763916, step: 4500, tokens_seen_global: 36864000, tokens_per_sec_global: 12060.285777597292, max_mem_mb: 4122.593792
+[log] train loss: 6.789404392242432, step: 5000, tokens_seen_global: 40960000, tokens_per_sec_global: 12081.970256267323, max_mem_mb: 4122.593792
+[log] train loss: 6.5532145500183105, step: 5500, tokens_seen_global: 45056000, tokens_per_sec_global: 12081.741877655468, max_mem_mb: 4122.593792
+[log] train loss: 6.626952171325684, step: 6000, tokens_seen_global: 49152000, tokens_per_sec_global: 12059.631367215572, max_mem_mb: 4122.593792
+[log] train loss: 6.503450870513916, step: 6500, tokens_seen_global: 53248000, tokens_per_sec_global: 12054.970108319734, max_mem_mb: 4122.593792
+[log] train loss: 6.105899333953857, step: 7000, tokens_seen_global: 57344000, tokens_per_sec_global: 12053.517104951678, max_mem_mb: 4122.593792
+[log] train loss: 6.503847599029541, step: 7500, tokens_seen_global: 61440000, tokens_per_sec_global: 12065.019407161048, max_mem_mb: 4122.593792
+[log] train loss: 6.385434150695801, step: 8000, tokens_seen_global: 65536000, tokens_per_sec_global: 12074.634719233978, max_mem_mb: 4122.593792
+[log] train loss: 6.268289566040039, step: 8500, tokens_seen_global: 69632000, tokens_per_sec_global: 12086.764287268794, max_mem_mb: 4122.593792
+[log] train loss: 6.724170684814453, step: 9000, tokens_seen_global: 73728000, tokens_per_sec_global: 12098.555207454385, max_mem_mb: 4122.593792
+[log] train loss: 6.173764705657959, step: 9500, tokens_seen_global: 77824000, tokens_per_sec_global: 12105.311691750032, max_mem_mb: 4122.593792
+[log] train loss: 6.506987571716309, step: 10000, tokens_seen_global: 81920000, tokens_per_sec_global: 12112.009611661486, max_mem_mb: 4122.593792
+[log] train loss: 6.2491984367370605, step: 10500, tokens_seen_global: 86016000, tokens_per_sec_global: 12107.251154285053, max_mem_mb: 4122.593792
+[log] train loss: 6.661066055297852, step: 11000, tokens_seen_global: 90112000, tokens_per_sec_global: 12106.346713175868, max_mem_mb: 4122.593792
+[log] train loss: 6.246923446655273, step: 11500, tokens_seen_global: 94208000, tokens_per_sec_global: 12091.667350444432, max_mem_mb: 4122.593792
+[log] train loss: 6.8477911949157715, step: 12000, tokens_seen_global: 98304000, tokens_per_sec_global: 12090.985596947618, max_mem_mb: 4122.593792
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:05, 17.55it/s]Computing mean-so-far PPL:   4%|▍         | 4/100 [00:00<00:05, 18.69it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 18.97it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 19.32it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 19.70it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:00<00:04, 19.78it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 19.93it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:00<00:04, 20.06it/s]Computing mean-so-far PPL:  22%|██▏       | 22/100 [00:01<00:03, 20.17it/s]Computing mean-so-far PPL:  25%|██▌       | 25/100 [00:01<00:03, 20.12it/s]Computing mean-so-far PPL:  28%|██▊       | 28/100 [00:01<00:03, 20.20it/s]Computing mean-so-far PPL:  31%|███       | 31/100 [00:01<00:03, 20.31it/s]Computing mean-so-far PPL:  34%|███▍      | 34/100 [00:01<00:03, 20.50it/s]Computing mean-so-far PPL:  37%|███▋      | 37/100 [00:01<00:03, 20.55it/s]Computing mean-so-far PPL:  40%|████      | 40/100 [00:01<00:02, 20.64it/s]Computing mean-so-far PPL:  43%|████▎     | 43/100 [00:02<00:02, 20.58it/s]Computing mean-so-far PPL:  46%|████▌     | 46/100 [00:02<00:02, 20.59it/s]Computing mean-so-far PPL:  49%|████▉     | 49/100 [00:02<00:02, 20.68it/s]Computing mean-so-far PPL:  52%|█████▏    | 52/100 [00:02<00:02, 20.71it/s]Computing mean-so-far PPL:  55%|█████▌    | 55/100 [00:02<00:02, 20.57it/s]Computing mean-so-far PPL:  58%|█████▊    | 58/100 [00:02<00:02, 20.53it/s]Computing mean-so-far PPL:  61%|██████    | 61/100 [00:03<00:01, 20.66it/s]Computing mean-so-far PPL:  64%|██████▍   | 64/100 [00:03<00:01, 20.60it/s]Computing mean-so-far PPL:  67%|██████▋   | 67/100 [00:03<00:01, 20.50it/s]Computing mean-so-far PPL:  70%|███████   | 70/100 [00:03<00:01, 20.59it/s]Computing mean-so-far PPL:  73%|███████▎  | 73/100 [00:03<00:01, 20.62it/s]Computing mean-so-far PPL:  76%|███████▌  | 76/100 [00:03<00:01, 20.68it/s]Computing mean-so-far PPL:  79%|███████▉  | 79/100 [00:03<00:01, 20.73it/s]Computing mean-so-far PPL:  82%|████████▏ | 82/100 [00:04<00:00, 20.93it/s]Computing mean-so-far PPL:  85%|████████▌ | 85/100 [00:04<00:00, 20.93it/s]Computing mean-so-far PPL:  88%|████████▊ | 88/100 [00:04<00:00, 20.93it/s]Computing mean-so-far PPL:  91%|█████████ | 91/100 [00:04<00:00, 20.97it/s]Computing mean-so-far PPL:  94%|█████████▍| 94/100 [00:04<00:00, 20.52it/s]Computing mean-so-far PPL:  97%|█████████▋| 97/100 [00:04<00:00, 20.54it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.59it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.44it/s]
+Inference time: 4.90s, Tokens/sec: 41809.91, Memory: 1842.57MB
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 1035, in <module>
+    del train_loader
+    ^^^^^^
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 1028, in main
+    wandb.finish()
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm.py", line 997, in NGRC_experiment
+    }
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 444, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2028, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1739, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1566, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 682, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 54, in history_dict_to_json
+    payload[key] = val_to_json(
+                   ^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 151, in val_to_json
+    _log_table_artifact(val, key, run)
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 198, in _log_table_artifact
+    art = InternalArtifact(f"run-{run.id}-{key}", "run_table")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/_internal_artifact.py", line 51, in __init__
+    super().__init__(
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact.py", line 271, in __init__
+    ArtifactManifestV1(storage_policy=make_storage_policy())
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/_factories.py", line 17, in make_storage_policy
+    return WandbStoragePolicy.from_config({"storageLayout": layout})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/storage_policies/wandb_storage_policy.py", line 101, in from_config
+    return cls(config=config, api=api)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/storage_policies/wandb_storage_policy.py", line 109, in __init__
+    self._cache = cache or get_artifact_file_cache()
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 251, in get_artifact_file_cache
+    return _build_artifact_file_cache(env.get_cache_dir() / "artifacts")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 247, in _build_artifact_file_cache
+    return ArtifactFileCache(cache_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 47, in __init__
+    self._sys_umask = _get_sys_umask_threadsafe()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/gj26/b20072/miniconda3/envs/esn/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact_file_cache.py", line 35, in _get_sys_umask_threadsafe
+    return int(subprocess.check_output(umask_cmd))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: b'User customization module loaded!\n23\n'
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mNGRC_LM(133.15M_d64_lag32_featz_z2_lr0.001_bs32_seq256_20251213-174920[0m at: [34mhttps://wandb.ai/telutelu/NGRC_LanguageModel/runs/mvnnmfg3[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251213_174954-mvnnmfg3/logs[0m
