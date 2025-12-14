@@ -16,3 +16,4 @@
 ./src/wandb/*
 ./src/hf_upload/*
 /src/checkpoint_ngrc/*
+src/wandb
