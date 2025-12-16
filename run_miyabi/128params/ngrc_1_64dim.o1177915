@@ -1,0 +1,1394 @@
+[2025-12-16 16:23:28,560] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 16:23:30,650] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_162409-74cfuaja
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(20.14M_d64_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-162331
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/74cfuaja
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=64, ngrc_lag=48, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=64, lag=48, poly_degree=1, phi_dim=3329, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 20.14M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.876014232635498, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 332073.2023999214, max_mem_mb: 20585.882112
+[log] train loss: 6.366092681884766, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 348685.7588643885, max_mem_mb: 20585.882112
+[log] train loss: 6.581274032592773, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 334285.9982080432, max_mem_mb: 20585.883136
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:04, 19.78it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:04, 20.55it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 20.77it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 20.76it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:04, 20.64it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:00<00:04, 20.65it/s]Computing mean-so-far PPL:  20%|██        | 20/100 [00:00<00:03, 20.74it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:01<00:03, 20.98it/s]Computing mean-so-far PPL:  26%|██▌       | 26/100 [00:01<00:03, 21.14it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:01<00:03, 21.16it/s]Computing mean-so-far PPL:  32%|███▏      | 32/100 [00:01<00:03, 21.01it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:01<00:03, 20.87it/s]Computing mean-so-far PPL:  38%|███▊      | 38/100 [00:01<00:02, 20.85it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:01<00:02, 21.07it/s]Computing mean-so-far PPL:  44%|████▍     | 44/100 [00:02<00:02, 21.17it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:02<00:02, 21.26it/s]Computing mean-so-far PPL:  50%|█████     | 50/100 [00:02<00:02, 21.18it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:02<00:02, 21.18it/s]Computing mean-so-far PPL:  56%|█████▌    | 56/100 [00:02<00:02, 21.12it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:02<00:01, 21.20it/s]Computing mean-so-far PPL:  62%|██████▏   | 62/100 [00:02<00:01, 21.24it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:03<00:01, 21.20it/s]Computing mean-so-far PPL:  68%|██████▊   | 68/100 [00:03<00:01, 21.28it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:03<00:01, 21.33it/s]Computing mean-so-far PPL:  74%|███████▍  | 74/100 [00:03<00:01, 21.38it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:03<00:01, 21.40it/s]Computing mean-so-far PPL:  80%|████████  | 80/100 [00:03<00:00, 21.51it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:03<00:00, 21.40it/s]Computing mean-so-far PPL:  86%|████████▌ | 86/100 [00:04<00:00, 21.25it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:04<00:00, 21.25it/s]Computing mean-so-far PPL:  92%|█████████▏| 92/100 [00:04<00:00, 21.12it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:04<00:00, 20.95it/s]Computing mean-so-far PPL:  98%|█████████▊| 98/100 [00:04<00:00, 20.94it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.08it/s]
+wandb: updating run metadata; uploading artifact run-74cfuaja-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_e1854216f1d302614a0e.table.json
+wandb: uploading artifact run-74cfuaja-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▂▃▃▅███████▇▇▇▇▇▇▆▆▆▅▅▄▄▄▃▃▃▃▁▁▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▁▁▃▆█▃▂▂▁▁▁▃▆▃▃▃▂▅▇▄▂▄▃▂▃▃▂▂▂▂▂▂▂▄▂▂▁▂▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▃▂▅▂▄▁▃▃▃▄▄▃▃▃▄▅▅▃▃▅▄▂▂▁▃▃▃▃▂▅▅▃▃▁▄▃▂█▂▄
+wandb:  grad_top/0_readout_out.weight ▂▃▄▆▇███▅▅▄▃▄▂▄▂▁▂▂▂▁▂▂▂▅▂▁▁▄▂▃▃▂▁▁▁▁▃▃▃
+wandb: grad_top/0_readout_proj.weight ▁▁▂▂▃▃▂▃▅▄▃▄▃▃▃▇▅█▂▅▂▃▃▂▃▃▂▂▃▂▂▂▂▂▂▃▇▂▂▁
+wandb:  grad_top/1_readout_out.weight ▄▅▄▂▂▂▂▃█▃▁▄▆▂▃▂▃▁▂▂▁▂▁▂▃▄▂▂▃▂▂▁▁▁▄▁▁▃▇▂
+wandb: grad_top/1_readout_proj.weight █▃▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▂▂▂
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.30843
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.0798
+wandb:  grad_top/0_readout_out.weight 0.97708
+wandb: grad_top/0_readout_proj.weight 0.27656
+wandb:  grad_top/1_readout_out.weight 0.13548
+wandb: grad_top/1_readout_proj.weight 0.84894
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(20.14M_d64_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-162331 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/74cfuaja
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_162409-74cfuaja/logs
+Inference time: 4.75s, Tokens/sec: 43119.74, Memory: 3920.48MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(20.14M_d64_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-162331_report.txt
+[2025-12-16 16:30:16,562] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 16:30:18,005] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_163047-0i3mkgww
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(21.71M_d64_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-163018
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/0i3mkgww
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=64, ngrc_lag=96, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=64, lag=96, poly_degree=1, phi_dim=6401, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 21.71M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.935263633728027, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 292047.8566875019, max_mem_mb: 21223.5136
+[log] train loss: 6.418227195739746, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 303093.54432255967, max_mem_mb: 21223.5136
+[log] train loss: 6.626435279846191, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 300914.45509493916, max_mem_mb: 21223.514624
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 22.20it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 22.16it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:04, 22.37it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:03, 22.44it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 22.51it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 22.58it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 22.64it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 22.67it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 22.77it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 22.71it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:02, 22.72it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 22.84it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 22.92it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 22.88it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:01<00:02, 22.94it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 22.95it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 23.11it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:01, 23.29it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 23.35it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 23.42it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 23.51it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:02<00:01, 23.51it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 23.31it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 23.16it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 23.12it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:00, 23.07it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 23.04it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 23.08it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:03<00:00, 23.07it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:03<00:00, 23.00it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 23.00it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 22.94it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 22.93it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 22.96it/s]
+wandb: updating run metadata; uploading artifact run-0i3mkgww-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_c9e15cd6ab5f5040cb11.table.json
+wandb: uploading artifact run-0i3mkgww-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▇█████▇▇▇▇▇▇▇▇▇▆▅▅▅▅▄▄▄▄▄▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▂▁▁▂▄▂▁▃▅▅▇██▇▇▇▇█▆▄▇▅▃▆▃▄▄▄▄▄▄▃▂▂▂▂▁▃▁▂
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▄▂▄▃▄▅▂▂▄▂▅▄▃▄▄▃▃▃▂▂▁▄▄▃▃▃▃▆▄▂▃▄▂▂▃▅█▁▅
+wandb:  grad_top/0_readout_out.weight ▂▂▄▄▄▅▄▇▆▄▄▂▂▂▂▂▁▁▃▂▂▁▂▁▁▁▁▁▂▂█▂▁▁▁▁▁▂▁▂
+wandb: grad_top/0_readout_proj.weight ▁▃▃▄▅▅▄▆▅▅▅▆▅▆▅▅▇█▅▇▅▇▅▄▄▃▃▅▄▂▃▂▂▂▂▂▂▂▂▂
+wandb:  grad_top/1_readout_out.weight ▆█▅▃▅▃▅▃▄▂▅▅▁▃▁▁▂▁▃▁▃▂▂▃▅▃▂▂▃▃▂▃▂▇▂▁▁▃▂▂
+wandb: grad_top/1_readout_proj.weight ▇▇██▆▆▅▅▄▃▃▂▂▂▃▂▄▃▂▁▂▂▃▅▂▂▂▃▃▂▅▃▄▃▂▄▆▂▄▃
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.44324
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.07402
+wandb:  grad_top/0_readout_out.weight 0.42536
+wandb: grad_top/0_readout_proj.weight 0.41925
+wandb:  grad_top/1_readout_out.weight 0.14296
+wandb: grad_top/1_readout_proj.weight 0.37464
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(21.71M_d64_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-163018 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/0i3mkgww
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_163047-0i3mkgww/logs
+Inference time: 4.36s, Tokens/sec: 46970.41, Memory: 3955.38MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(21.71M_d64_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-163018_report.txt
+[2025-12-16 16:37:29,217] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 16:37:30,678] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_163817-q2gw10ln
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(23.28M_d64_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-163731
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/q2gw10ln
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=64, ngrc_lag=48, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=64, lag=48, poly_degree=3, phi_dim=9473, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 23.28M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.609264850616455, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 266847.0350146062, max_mem_mb: 21547.523584
+[log] train loss: 6.095119953155518, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 290165.4374590888, max_mem_mb: 21547.523584
+[log] train loss: 6.3079023361206055, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 290055.26987736596, max_mem_mb: 21547.524608
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 22.07it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 22.53it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:04, 22.67it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:03, 22.82it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 22.94it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 22.83it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 22.89it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 23.11it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 23.29it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:02, 23.40it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:02, 23.51it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 23.61it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 23.73it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 23.72it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:01<00:02, 23.83it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 23.72it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 23.66it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:01, 23.57it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 23.56it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 23.53it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 23.36it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:02<00:01, 23.30it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:02<00:01, 23.27it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 23.44it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 23.61it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:00, 23.54it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 23.63it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 23.70it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:03<00:00, 23.80it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:03<00:00, 23.81it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:03<00:00, 23.93it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 24.05it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 24.05it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 23.50it/s]
+wandb: updating run metadata; uploading artifact run-q2gw10ln-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_92ff8bd0d1de68a57cc5.table.json
+wandb: uploading artifact run-q2gw10ln-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▇▇██████▇▇▇▇▇▆▆▅▅▅▄▄▄▄▄▃▃▃▃▃▃▃▃▂▂▂▂▂▁▁▁▁
+wandb:       grad/preclip/global_norm ▃▃▃▅▃▅▃▇▂▂▃▂▅▇▄▂▃▃▃█▃▂▄▆▂▃▁▃▂▂▂▁▃▃▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▅█▁▄▂▂▂▂▂▂▃▄▂▂▂▅▃▃▂▄▂▁▁▂▇▃▄▆▂▂▃▄▂▃▂▁▃▃▂
+wandb:  grad_top/0_readout_out.weight █▆▆▄▄▇▃▃▃▂▂▂▂▁▁▁▁▁▁▆▃▂▂▃▂▃▂▃▁▂▂▂▂▂▂▂▂▃▂▆
+wandb: grad_top/0_readout_proj.weight ▃▃▂█▃▄▇▂▄▅▂▃▆▄▂▄▂▂▃▂▁▂▂▁▅▁▄▅▂▂▁▂▁▁▂▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▇▆▇▅▆█▃▄▄▇▄▃▄▅▂▂▃█▂▂▄▂▂▄▅▂▂▄▂▂▁▃▂▄▃▃▁▃▁▂
+wandb: grad_top/1_readout_proj.weight ▅█▆▅▂▃▂▂▁▂▂▁▁▂▁▁▂▂▂▃▂▂▃▂▂▁▃▃▁▂▂▃▂▂▂▃▂▂▃▄
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.76905
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.06902
+wandb:  grad_top/0_readout_out.weight 2.55771
+wandb: grad_top/0_readout_proj.weight 0.70867
+wandb:  grad_top/1_readout_out.weight 0.29809
+wandb: grad_top/1_readout_proj.weight 2.27598
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(23.28M_d64_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-163731 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/q2gw10ln
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_163817-q2gw10ln/logs
+Inference time: 4.26s, Tokens/sec: 48084.70, Memory: 3965.63MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(23.28M_d64_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-163731_report.txt
+[2025-12-16 16:45:17,591] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 16:45:19,049] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_164548-63z49817
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(28.00M_d64_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-164519
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/63z49817
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=64, ngrc_lag=96, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=64, lag=96, poly_degree=3, phi_dim=18689, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 28.00M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.726377010345459, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 210864.29716234392, max_mem_mb: 23147.912704
+[log] train loss: 6.198301315307617, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 221940.08765270901, max_mem_mb: 23147.912704
+[log] train loss: 6.383716106414795, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 230439.02746545724, max_mem_mb: 23147.913728
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:04, 19.69it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:04, 20.90it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 21.17it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 21.23it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:04, 21.25it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:00<00:03, 21.20it/s]Computing mean-so-far PPL:  20%|██        | 20/100 [00:00<00:03, 21.14it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:01<00:03, 21.05it/s]Computing mean-so-far PPL:  26%|██▌       | 26/100 [00:01<00:03, 21.21it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:01<00:03, 21.28it/s]Computing mean-so-far PPL:  32%|███▏      | 32/100 [00:01<00:03, 21.27it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:01<00:03, 21.33it/s]Computing mean-so-far PPL:  38%|███▊      | 38/100 [00:01<00:02, 21.48it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:01<00:02, 21.49it/s]Computing mean-so-far PPL:  44%|████▍     | 44/100 [00:02<00:02, 21.55it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:02<00:02, 21.42it/s]Computing mean-so-far PPL:  50%|█████     | 50/100 [00:02<00:02, 21.50it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:02<00:02, 21.63it/s]Computing mean-so-far PPL:  56%|█████▌    | 56/100 [00:02<00:02, 21.64it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:02<00:01, 21.62it/s]Computing mean-so-far PPL:  62%|██████▏   | 62/100 [00:02<00:01, 21.80it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:03<00:01, 21.78it/s]Computing mean-so-far PPL:  68%|██████▊   | 68/100 [00:03<00:01, 21.90it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:03<00:01, 21.94it/s]Computing mean-so-far PPL:  74%|███████▍  | 74/100 [00:03<00:01, 21.95it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:03<00:01, 21.86it/s]Computing mean-so-far PPL:  80%|████████  | 80/100 [00:03<00:00, 21.80it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:03<00:00, 21.95it/s]Computing mean-so-far PPL:  86%|████████▌ | 86/100 [00:03<00:00, 21.99it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:04<00:00, 21.93it/s]Computing mean-so-far PPL:  92%|█████████▏| 92/100 [00:04<00:00, 21.93it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:04<00:00, 22.04it/s]Computing mean-so-far PPL:  98%|█████████▊| 98/100 [00:04<00:00, 22.10it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.63it/s]
+wandb: updating run metadata; uploading artifact run-63z49817-mean_so_far_ppl_curve_table
+wandb: uploading artifact run-63z49817-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▅▇▇███████▇▇▇▇▇▆▆▆▆▆▅▅▅▅▅▄▄▄▄▃▃▂▂▂▂▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▃▂▃▂▃█▂▂▂▃▂▃▂▂▄▁▂▂▂▂▃▁▂▁▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▆▂▅▆▃▃▃▁▇▅█▂█▆▂▃▃▃▃▃▃▂▂▅▃▄▂▄▄▃▂▄▄▃▄▂▂▇▆▇
+wandb:  grad_top/0_readout_out.weight ▁▂▂▂▂▂▂▁▁▁▁▁▅▂▅▁▁▂▁▂▂▆█
+wandb: grad_top/0_readout_proj.weight ▃▃▃█▂▅▂▃▂▅▃▂▂▂▄▄▂▃▃▂▃▂▂▂▄▂▂▃▂▁▂▁▁▁▁▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▇▅▃▆▃▂▂▂▅▃▂▂▂▂▂▂▁▂▂▂▂▁▂▁▁▁▁▁▁▂▁▁▁▁▁██▁▁▁
+wandb: grad_top/1_readout_proj.weight ▁▂▂▁▂▁▁▁▁▁▁▁▅▂▅▁▁▂▁▂▂▆█
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.96024
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.05739
+wandb:  grad_top/0_readout_out.weight 7.39098
+wandb: grad_top/0_readout_proj.weight 0.88221
+wandb:  grad_top/1_readout_out.weight 0.37859
+wandb: grad_top/1_readout_proj.weight 7.32021
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(28.00M_d64_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-164519 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/63z49817
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_164548-63z49817/logs
+Inference time: 4.63s, Tokens/sec: 44258.07, Memory: 4042.38MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(28.00M_d64_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-164519_report.txt
+[2025-12-16 16:54:15,564] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 16:54:17,034] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_165447-e7a148yz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(23.76M_d128_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-165417
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/e7a148yz
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=128, ngrc_lag=48, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=128, lag=48, poly_degree=1, phi_dim=6401, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 23.76M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.721649646759033, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 289105.50586949225, max_mem_mb: 21242.3552
+[log] train loss: 6.149684906005859, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 295663.3365887067, max_mem_mb: 21242.3552
+[log] train loss: 6.432856559753418, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 295275.08662144525, max_mem_mb: 21242.356224
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 21.04it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 21.47it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:04, 21.49it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:04, 21.44it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 21.43it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 21.44it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 21.57it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 21.64it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 21.48it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 21.51it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:03, 21.47it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 21.48it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 21.62it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 21.53it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:02<00:02, 21.68it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 21.62it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 21.70it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:02, 21.80it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 21.89it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 21.83it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 21.81it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:03<00:01, 21.70it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 21.68it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 21.57it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 21.49it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:01, 21.34it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 21.42it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 21.52it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:04<00:00, 21.60it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:04<00:00, 21.73it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 21.68it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 21.82it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 21.76it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.61it/s]
+wandb: updating run metadata; uploading artifact run-e7a148yz-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_7306051fb815cc387541.table.json
+wandb: uploading artifact run-e7a148yz-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▃▃▄▅█████████▇▇▇▇▆▆▆▆▆▆▅▅▄▄▄▄▃▃▃▃▂▂▁▁▁▁
+wandb:       grad/preclip/global_norm ▃▃▄▁▁▁▂▁▁▁▂▁▁▁▂▂▂▂▂▁▁▂▁▂▂▁▁▁▁▂▁▁▁▁▂▂▃█▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▁▁▄▂▁▄▃▆▅▂▄▂▅▂▄▃▅▅▁▂▄▃▂▅▄▃▃▂▄▃▄▅▂██▁▂▅▃▆
+wandb:  grad_top/0_readout_out.weight ▂▃▃▃▃▃▄▄▆█▂▂▂▁▂▁▂▁▂▁▂▃▂▂▂▁▁▆▂▂▁▂▁▁▁▁▂▁▂▂
+wandb: grad_top/0_readout_proj.weight ▃▁▁▁▂▅▂▂▂▂▂▃▃▄▄▄▄▄▇▇▄▅▆▄▇▆▄▄▄▃▄▃▄▃▃█▃▃▃▄
+wandb:  grad_top/1_readout_out.weight ▁▁▃▂▂▂▄▂▃▄▃▂█▂▄▃▃▃▆▂▂▅▃▂▂▂▂▂▂▃▄▂▄▂▃▃▂▃▄▅
+wandb: grad_top/1_readout_proj.weight ▂▂▂▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁█
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.40013
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.13528
+wandb:  grad_top/0_readout_out.weight 1.29307
+wandb: grad_top/0_readout_proj.weight 0.36176
+wandb:  grad_top/1_readout_out.weight 0.17044
+wandb: grad_top/1_readout_proj.weight 0.9933
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(23.76M_d128_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-165417 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/e7a148yz
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_165447-e7a148yz/logs
+Inference time: 4.63s, Tokens/sec: 44223.65, Memory: 3968.29MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(23.76M_d128_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-165417_report.txt
+[2025-12-16 17:01:37,061] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:01:38,507] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_170209-n37jie3h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(26.90M_d128_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-170139
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/n37jie3h
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=128, ngrc_lag=96, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=128, lag=96, poly_degree=1, phi_dim=12545, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 26.90M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.821781635284424, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 224470.23440147442, max_mem_mb: 22519.520768
+[log] train loss: 6.258909702301025, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 236856.59358988603, max_mem_mb: 22519.520768
+[log] train loss: 6.490262031555176, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 236587.17591865602, max_mem_mb: 22519.521792
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 22.63it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 22.86it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:03, 22.88it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:03, 22.95it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 22.96it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 23.02it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 23.25it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 23.27it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 23.17it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 23.10it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:02, 23.19it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 23.10it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 23.01it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 23.07it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:01<00:02, 23.19it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 23.31it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 23.55it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:01, 23.65it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 23.79it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 23.87it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 23.77it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:02<00:01, 23.61it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:02<00:01, 23.63it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 23.62it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 23.69it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:00, 23.69it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 23.74it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 23.83it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:03<00:00, 23.82it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:03<00:00, 23.81it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:03<00:00, 23.57it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 23.54it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 23.36it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 23.41it/s]
+wandb: updating run metadata; uploading artifact run-n37jie3h-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_8cfd2b3ac942dc8a881f.table.json
+wandb: uploading artifact run-n37jie3h-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▇█████████▇▇▆▆▆▅▅▅▅▄▄▄▄▃▃▃▃▃▃▂▂▂▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▆▃▃▃▂▁▁▂▄▃▃▄▆▃▄▄▄▃▆▃▃▄▄▃▄▃▃▃▂▂▄▂▂▂▂▂█▂▂▂
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▃▅▁▁▂▆▂▁▇▄▁▄▂▂▄▂▅▃▃▃▃▄▄▂▆█▂▄▅▅▅▅▄▁▃▇▅▂▂▆
+wandb:  grad_top/0_readout_out.weight ▃▃▃▄▅▅█▃▄▄▁▂▁▂▂▂▃▁▁▁▂▂▂▂▂▂▂▃▁▂▄▂▂▁▂▂▄▂▂▃
+wandb: grad_top/0_readout_proj.weight ▃▄▁▂▃▄▄▃▃▄▂▃▃█▅▄▄▄▄▄▄▅▄▅▅▅▅▃▃▃▃▃▄▃▃▃▂▄▂▂
+wandb:  grad_top/1_readout_out.weight █▆▃▅▄▄▄▃▄▃▅▃▅▃▄▂▂▃▂▂▃▃▂▂▂▄▄▇▂▁▂▁▂▁▂▂▇▅▂▂
+wandb: grad_top/1_readout_proj.weight ▂▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂▁▂▂█
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.49033
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.11946
+wandb:  grad_top/0_readout_out.weight 1.4146
+wandb: grad_top/0_readout_proj.weight 0.45275
+wandb:  grad_top/1_readout_out.weight 0.18767
+wandb: grad_top/1_readout_proj.weight 1.03196
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(26.90M_d128_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-170139 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/n37jie3h
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_170209-n37jie3h/logs
+Inference time: 4.28s, Tokens/sec: 47895.35, Memory: 4036.84MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(26.90M_d128_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-170139_report.txt
+[2025-12-16 17:10:25,454] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:10:26,897] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_171055-spzas3z1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(30.05M_d128_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-171027
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/spzas3z1
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=128, ngrc_lag=48, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=128, lag=48, poly_degree=3, phi_dim=18689, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 30.05M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.52751350402832, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 227494.69992107214, max_mem_mb: 23168.194048
+[log] train loss: 5.864609718322754, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 232568.62976267995, max_mem_mb: 23168.194048
+[log] train loss: 6.089138507843018, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 227925.12889388893, max_mem_mb: 23168.195072
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 20.87it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 21.07it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:04, 21.23it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:04, 21.33it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 21.42it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 21.35it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 21.36it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 21.37it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 21.29it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 21.33it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:03, 21.44it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 21.58it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 21.62it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 21.52it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:02<00:02, 21.45it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 21.53it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 21.66it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:02, 21.67it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 21.65it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 21.63it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 21.64it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:03<00:01, 21.63it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 21.72it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 21.71it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 21.71it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:01, 21.69it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 21.74it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 21.79it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:04<00:00, 21.80it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:04<00:00, 21.77it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 21.67it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 21.68it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 21.69it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.57it/s]
+wandb: updating run metadata; uploading artifact run-spzas3z1-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_b8f5bec9becde29afc2c.table.json
+wandb: uploading artifact run-spzas3z1-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▂▂▆█████████▇▇▆▆▅▅▅▄▄▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▃▆▂█▂▂▂▂▃▂▂▄▂▂▂▄▃▂▁▂▂▂▂▂▁▁▁▃▁▂▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▁█▂▂▄▃▂▁▃▂▃▂▂▂▃▃▃▇▆▄▁▂▃▃▂▃▃▄▄▂▁▄▂▂▁▄▆▂▂▃
+wandb:  grad_top/0_readout_out.weight ▄▄▃▃▁▂▃▂█
+wandb: grad_top/0_readout_proj.weight ▅▂▂█▂▅▂▃▂▁▁▂▁▂▁▄▁▂▁▁▁▂▂▂▂▁▃▂▂▁▂▁▁▁▂▁▁▁▁▃
+wandb:  grad_top/1_readout_out.weight ▁▃▄█▃▂▂▂▃▂▂▁▂▂▂▂▂▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight ▃▃▃▃▁▂▃▂█
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.02443
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.10696
+wandb:  grad_top/0_readout_out.weight 3.30132
+wandb: grad_top/0_readout_proj.weight 0.94241
+wandb:  grad_top/1_readout_out.weight 0.40123
+wandb: grad_top/1_readout_proj.weight 3.2576
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(30.05M_d128_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-171027 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/spzas3z1
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_171055-spzas3z1/logs
+Inference time: 4.64s, Tokens/sec: 44119.47, Memory: 4055.32MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(30.05M_d128_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-171027_report.txt
+[2025-12-16 17:19:28,557] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:19:30,003] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_172042-ps3eid37
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(39.49M_d128_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-171930
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/ps3eid37
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=128, ngrc_lag=96, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=128, lag=96, poly_degree=3, phi_dim=37121, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 39.49M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.827350616455078, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 154812.11060438692, max_mem_mb: 26369.003008
+[log] train loss: 5.9946489334106445, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 160981.92082201468, max_mem_mb: 26369.003008
+[log] train loss: 6.174928188323975, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 152885.8832340329, max_mem_mb: 26369.004032
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:05, 16.83it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:04, 20.60it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 21.53it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 22.01it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:03, 22.37it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:00<00:03, 22.56it/s]Computing mean-so-far PPL:  20%|██        | 20/100 [00:00<00:03, 22.73it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:01<00:03, 22.92it/s]Computing mean-so-far PPL:  26%|██▌       | 26/100 [00:01<00:03, 22.97it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:01<00:03, 23.08it/s]Computing mean-so-far PPL:  32%|███▏      | 32/100 [00:01<00:02, 23.13it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:01<00:02, 23.07it/s]Computing mean-so-far PPL:  38%|███▊      | 38/100 [00:01<00:02, 23.10it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:01<00:02, 23.16it/s]Computing mean-so-far PPL:  44%|████▍     | 44/100 [00:01<00:02, 23.21it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:02<00:02, 23.33it/s]Computing mean-so-far PPL:  50%|█████     | 50/100 [00:02<00:02, 23.42it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:02<00:02, 23.47it/s]Computing mean-so-far PPL:  56%|█████▌    | 56/100 [00:02<00:01, 23.61it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:02<00:01, 23.62it/s]Computing mean-so-far PPL:  62%|██████▏   | 62/100 [00:02<00:01, 23.42it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:02<00:01, 23.24it/s]Computing mean-so-far PPL:  68%|██████▊   | 68/100 [00:02<00:01, 23.28it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:03<00:01, 23.37it/s]Computing mean-so-far PPL:  74%|███████▍  | 74/100 [00:03<00:01, 23.34it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:03<00:00, 23.27it/s]Computing mean-so-far PPL:  80%|████████  | 80/100 [00:03<00:00, 23.26it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:03<00:00, 23.30it/s]Computing mean-so-far PPL:  86%|████████▌ | 86/100 [00:03<00:00, 23.34it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:03<00:00, 23.34it/s]Computing mean-so-far PPL:  92%|█████████▏| 92/100 [00:03<00:00, 23.46it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:04<00:00, 23.38it/s]Computing mean-so-far PPL:  98%|█████████▊| 98/100 [00:04<00:00, 23.39it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 23.09it/s]
+wandb: updating run metadata; uploading artifact run-ps3eid37-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_081ba0d1db0528ffa349.table.json
+wandb: uploading artifact run-ps3eid37-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▂▂▃▄▄▇▇████▇▇▇▇▇▆▆▆▅▅▅▄▄▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▄▃▃▅▃█▄▂▂▃▂▂▂▄▂▃▃▂▂▂▂▂▃▁▂▁▂▁▁▂▁▂▂▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▅▄▅▂▃▇▅▅▁▅▃▃▄▆▃▇▁▃█▂▄▃▅▁▃▆▅▆▆▆▅▁▅▂▄▂▅▇▄
+wandb:  grad_top/0_readout_out.weight █▄▃▃▂▁▁▂▂
+wandb: grad_top/0_readout_proj.weight ▂▁▂▂▂▃█▂▂▂▂▂▂▂▁▂▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▆▅▃▂▂▄█▂▂▂▂▃▃▃▂▁▂▂▂▂▁▂▁▁▁▂▁▂▁▁▁▂▁▂▁▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight █▅▄▄▂▁▁▃▃
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.11331
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.08139
+wandb:  grad_top/0_readout_out.weight 3.78015
+wandb: grad_top/0_readout_proj.weight 0.98361
+wandb:  grad_top/1_readout_out.weight 0.5212
+wandb: grad_top/1_readout_proj.weight 3.69883
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(39.49M_d128_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-171930 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/ps3eid37
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_172042-ps3eid37/logs
+Inference time: 4.34s, Tokens/sec: 47221.11, Memory: 4212.74MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(39.49M_d128_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-171930_report.txt
+[2025-12-16 17:33:08,055] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:33:10,000] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_173357-qd52da7e
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(31.00M_d256_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-173310
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/qd52da7e
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=256, ngrc_lag=48, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=256, lag=48, poly_degree=1, phi_dim=12545, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 31.00M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.576816558837891, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 218956.18283205404, max_mem_mb: 22557.597184
+[log] train loss: 5.92647123336792, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 230848.9591606044, max_mem_mb: 22557.597184
+[log] train loss: 6.229586601257324, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 223465.6097044278, max_mem_mb: 22557.598208
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:04, 21.27it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:04, 21.53it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:04, 21.68it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:04, 21.69it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:00<00:03, 21.65it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:03, 21.73it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:00<00:03, 21.80it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 21.84it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 21.91it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 21.86it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:03, 21.77it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:02, 21.86it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 21.95it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:01<00:02, 21.95it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:02<00:02, 22.12it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 22.06it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 22.06it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:02, 22.14it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:01, 22.11it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 22.17it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:02<00:01, 22.11it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:03<00:01, 22.08it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 22.13it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 22.19it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 22.22it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:01, 21.94it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 21.88it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:03<00:00, 21.71it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:03<00:00, 21.53it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:04<00:00, 21.69it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 21.64it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 21.71it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 21.74it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.88it/s]
+wandb: updating run metadata; uploading artifact run-qd52da7e-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_09bb17d34c665d176513.table.json
+wandb: uploading artifact run-qd52da7e-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▂▃▃▅▆██▇▇▇▇▆▆▆▆▅▅▅▅▅▄▄▄▄▃▃▃▃▃▂▁▁▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▁█▄▅▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁▁▁▁▁▁▁▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▅▄▂▂▂▄▅▅▅▂▃▂▃▄▄▃▅▆▄▇▁▂█▂▄▄▆▅▂▂▄▃▂▃▆▁▂▄▃▄
+wandb:  grad_top/0_readout_out.weight ▅▆▇██▇▃▃▃▁▄▂▂▃▁▂▂▁▂▁▃▂▂▂▃▁▂▁▁▃▂▁▁▂▁▂▅▂▂▃
+wandb: grad_top/0_readout_proj.weight ▁▁▁▅▃▂▃▅▆▄▆▆▅▄▄▄█▄▆▅▄▄▆▆▆▄▅▆▅▅▃▃▃▃▃▄▂▃▃▃
+wandb:  grad_top/1_readout_out.weight ▁▅▄▄▃▄▂▄▃▂▃▃▂▂▂█▃▃▂▃▂▃▃▃▂▄▄▃▂▂▂▃▂▄▂▂▃▂▂▂
+wandb: grad_top/1_readout_proj.weight ▂▂█▂▂▂▁▂▁▁▁▁▁▂▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▂▂▂▁▂▂▂▂▂▆▆
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.46354
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.20735
+wandb:  grad_top/0_readout_out.weight 0.57193
+wandb: grad_top/0_readout_proj.weight 0.41153
+wandb:  grad_top/1_readout_out.weight 0.21295
+wandb: grad_top/1_readout_proj.weight 0.56048
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(31.00M_d256_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-173310 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/qd52da7e
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_173357-qd52da7e/logs
+Inference time: 4.57s, Tokens/sec: 44769.22, Memory: 4062.33MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(31.00M_d256_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-173310_report.txt
+[2025-12-16 17:42:42,823] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:42:44,271] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_174334-fymcjiz3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(37.29M_d256_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-174244
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/fymcjiz3
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=256, ngrc_lag=96, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=256, lag=96, poly_degree=1, phi_dim=24833, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 37.29M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.695959091186523, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 168148.98529156466, max_mem_mb: 25111.927296
+[log] train loss: 6.043127536773682, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 174679.48835424578, max_mem_mb: 25111.927296
+[log] train loss: 6.31719970703125, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 169943.39765252656, max_mem_mb: 25111.92832
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   1%|          | 1/100 [00:00<00:18,  5.40it/s]Computing mean-so-far PPL:   4%|▍         | 4/100 [00:00<00:06, 13.75it/s]Computing mean-so-far PPL:   7%|▋         | 7/100 [00:00<00:05, 16.98it/s]Computing mean-so-far PPL:  10%|█         | 10/100 [00:00<00:04, 18.55it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:00<00:04, 19.44it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 19.99it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:01<00:03, 20.27it/s]Computing mean-so-far PPL:  22%|██▏       | 22/100 [00:01<00:03, 20.52it/s]Computing mean-so-far PPL:  25%|██▌       | 25/100 [00:01<00:03, 20.76it/s]Computing mean-so-far PPL:  28%|██▊       | 28/100 [00:01<00:03, 20.51it/s]Computing mean-so-far PPL:  31%|███       | 31/100 [00:01<00:03, 20.42it/s]Computing mean-so-far PPL:  34%|███▍      | 34/100 [00:01<00:03, 20.30it/s]Computing mean-so-far PPL:  37%|███▋      | 37/100 [00:01<00:03, 20.31it/s]Computing mean-so-far PPL:  40%|████      | 40/100 [00:02<00:02, 20.36it/s]Computing mean-so-far PPL:  43%|████▎     | 43/100 [00:02<00:02, 20.29it/s]Computing mean-so-far PPL:  46%|████▌     | 46/100 [00:02<00:02, 20.30it/s]Computing mean-so-far PPL:  49%|████▉     | 49/100 [00:02<00:02, 20.34it/s]Computing mean-so-far PPL:  52%|█████▏    | 52/100 [00:02<00:02, 20.45it/s]Computing mean-so-far PPL:  55%|█████▌    | 55/100 [00:02<00:02, 20.48it/s]Computing mean-so-far PPL:  58%|█████▊    | 58/100 [00:02<00:02, 20.71it/s]Computing mean-so-far PPL:  61%|██████    | 61/100 [00:03<00:01, 20.74it/s]Computing mean-so-far PPL:  64%|██████▍   | 64/100 [00:03<00:01, 20.87it/s]Computing mean-so-far PPL:  67%|██████▋   | 67/100 [00:03<00:01, 20.68it/s]Computing mean-so-far PPL:  70%|███████   | 70/100 [00:03<00:01, 20.76it/s]Computing mean-so-far PPL:  73%|███████▎  | 73/100 [00:03<00:01, 20.85it/s]Computing mean-so-far PPL:  76%|███████▌  | 76/100 [00:03<00:01, 20.75it/s]Computing mean-so-far PPL:  79%|███████▉  | 79/100 [00:03<00:01, 20.78it/s]Computing mean-so-far PPL:  82%|████████▏ | 82/100 [00:04<00:00, 20.83it/s]Computing mean-so-far PPL:  85%|████████▌ | 85/100 [00:04<00:00, 20.98it/s]Computing mean-so-far PPL:  88%|████████▊ | 88/100 [00:04<00:00, 21.01it/s]Computing mean-so-far PPL:  91%|█████████ | 91/100 [00:04<00:00, 21.01it/s]Computing mean-so-far PPL:  94%|█████████▍| 94/100 [00:04<00:00, 20.64it/s]Computing mean-so-far PPL:  97%|█████████▋| 97/100 [00:04<00:00, 20.48it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.39it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.14it/s]
+wandb: updating run metadata; uploading artifact run-fymcjiz3-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_280483660be90fd87af6.table.json
+wandb: uploading artifact run-fymcjiz3-mean_so_far_ppl_curve_table
+wandb: uploading history steps 1953-1954, summary, console lines 6-8
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▂▃▃▆███▇▇▇▇▇▇▇▇▆▆▅▅▅▄▄▃▃▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▄▇█▃▃▃▂▃▂▂▃▂▃▂▄▄▂▂▃▂▃▂▂▂▂▂▂▁▂▂▁▁▁▂▂▁▂▂▁▃
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▂▄▃▅▅▄▅▂▄▃▃▃▃▃▅▂▄▄▇▄▁▄▅▅▃▃█▂▃▄▃▃▄▆▃▂▇▂▅
+wandb:  grad_top/0_readout_out.weight ▂▂▃▂▃▃▅▂▄▂▂▁▁▁▁▁▂▂▁▁▁▁▁▂▁▂▂▃▂▂▂▂▂▂▂▁▂▂█▁
+wandb: grad_top/0_readout_proj.weight ▂▂▄▃▃▃▃▂▂▂▄▄▆▅▇▃▄▅▄▅▆▄▆▄▅▄█▅▄▄▂▃▁▁▅▃▂▂▁▂
+wandb:  grad_top/1_readout_out.weight ▇▅██▇▂▃▄▂▃▂▅▃▃▅▃▃▇▂▅▃▂▂▄▂▂▂▃▃▂▄▁▂▁▆▂▁▂▂▂
+wandb: grad_top/1_readout_proj.weight ▆▆▅▄▄▃▄▃▃▁▁▁▁▁▁▁▁▂▁▁▁▂▁▁▂▃▄▃▂▃▅▃▂█▅▃▄▃▅▂
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.52429
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.17237
+wandb:  grad_top/0_readout_out.weight 0.74884
+wandb: grad_top/0_readout_proj.weight 0.45204
+wandb:  grad_top/1_readout_out.weight 0.26513
+wandb: grad_top/1_readout_proj.weight 0.62825
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(37.29M_d256_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-174244 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/fymcjiz3
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_174334-fymcjiz3/logs
+Inference time: 4.97s, Tokens/sec: 41172.77, Memory: 4199.96MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(37.29M_d256_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-174244_report.txt
+[2025-12-16 17:54:37,044] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 17:54:38,977] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_175521-p8q1ozdq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(43.58M_d256_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-175439
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/p8q1ozdq
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=256, ngrc_lag=48, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=256, lag=48, poly_degree=3, phi_dim=37121, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 43.58M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.491925239562988, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 153874.93976601123, max_mem_mb: 26407.865856
+[log] train loss: 5.691803932189941, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 158230.19688380012, max_mem_mb: 26407.865856
+[log] train loss: 5.922234535217285, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 150741.90261259838, max_mem_mb: 26407.86688
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 16.23it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:04, 19.19it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 19.63it/s]Computing mean-so-far PPL:  10%|█         | 10/100 [00:00<00:04, 19.67it/s]Computing mean-so-far PPL:  12%|█▏        | 12/100 [00:00<00:04, 19.62it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:04, 19.72it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:00<00:04, 19.85it/s]Computing mean-so-far PPL:  20%|██        | 20/100 [00:01<00:03, 20.15it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:01<00:03, 20.38it/s]Computing mean-so-far PPL:  26%|██▌       | 26/100 [00:01<00:03, 20.47it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:01<00:03, 20.65it/s]Computing mean-so-far PPL:  32%|███▏      | 32/100 [00:01<00:03, 20.81it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:01<00:03, 20.82it/s]Computing mean-so-far PPL:  38%|███▊      | 38/100 [00:01<00:02, 20.84it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:02<00:02, 20.85it/s]Computing mean-so-far PPL:  44%|████▍     | 44/100 [00:02<00:02, 20.95it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:02<00:02, 20.98it/s]Computing mean-so-far PPL:  50%|█████     | 50/100 [00:02<00:02, 21.09it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:02<00:02, 21.09it/s]Computing mean-so-far PPL:  56%|█████▌    | 56/100 [00:02<00:02, 21.15it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:02<00:01, 21.30it/s]Computing mean-so-far PPL:  62%|██████▏   | 62/100 [00:03<00:01, 21.38it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:03<00:01, 21.27it/s]Computing mean-so-far PPL:  68%|██████▊   | 68/100 [00:03<00:01, 21.19it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:03<00:01, 21.24it/s]Computing mean-so-far PPL:  74%|███████▍  | 74/100 [00:03<00:01, 21.26it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:03<00:01, 21.15it/s]Computing mean-so-far PPL:  80%|████████  | 80/100 [00:03<00:00, 21.14it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:03<00:00, 21.19it/s]Computing mean-so-far PPL:  86%|████████▌ | 86/100 [00:04<00:00, 21.25it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:04<00:00, 21.28it/s]Computing mean-so-far PPL:  92%|█████████▏| 92/100 [00:04<00:00, 21.29it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:04<00:00, 21.27it/s]Computing mean-so-far PPL:  98%|█████████▊| 98/100 [00:04<00:00, 21.37it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.87it/s]
+wandb: updating run metadata; uploading artifact run-p8q1ozdq-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_0bc5078ee7dc3878c9e1.table.json
+wandb: uploading artifact run-p8q1ozdq-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▂▃▆▇█████████▇▇▇▆▆▆▆▆▅▅▅▅▅▅▅▄▃▂▂▂▂▂▁▁▁▁▁
+wandb:       grad/preclip/global_norm █▃▂▂▆▃▅▂▂▂▂▂▂▁▂▂▁▂▂▂▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▃▂▄▂▃▂▂▃▃▁▃▁▂▄▂▂▄▂▂▂▂▁▄▃▂▂▂▂▁▂▂▂▂▂▂▁▁█▄▁
+wandb:  grad_top/0_readout_out.weight ▆▁█▃
+wandb: grad_top/0_readout_proj.weight ▄▄▄█▆█▅▄█▄▆▅▄▅▃▅▂▂▂▃▂▃▂▄▆▂▃▂▂▁▁▂▂▂▂▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▁▃▃▂▂█▂▂▂▂▂▂▂▁▂▂▂▂▂▂▁▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight █▁█▄
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.14208
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.14749
+wandb:  grad_top/0_readout_out.weight 7.66792
+wandb: grad_top/0_readout_proj.weight 1.01693
+wandb:  grad_top/1_readout_out.weight 0.51959
+wandb: grad_top/1_readout_proj.weight 7.61598
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(43.58M_d256_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-175439 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/p8q1ozdq
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_175521-p8q1ozdq/logs
+Inference time: 4.80s, Tokens/sec: 42687.04, Memory: 4238.49MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(43.58M_d256_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-175439_report.txt
+[2025-12-16 18:07:58,848] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 18:08:00,774] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_180830-jllli1b9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(62.46M_d256_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-180801
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/jllli1b9
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=256, ngrc_lag=96, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=256, lag=96, poly_degree=3, phi_dim=73985, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 62.46M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 7.044543743133545, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 99190.26556771595, max_mem_mb: 32812.568064
+[log] train loss: 5.919260025024414, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 101509.28016179115, max_mem_mb: 32812.568064
+[log] train loss: 6.031826496124268, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 100038.7051260976, max_mem_mb: 32812.569088
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 15.81it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:05, 18.87it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 19.82it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 20.26it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:04, 20.38it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:00<00:04, 20.45it/s]Computing mean-so-far PPL:  20%|██        | 20/100 [00:00<00:03, 20.52it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:01<00:03, 20.66it/s]Computing mean-so-far PPL:  26%|██▌       | 26/100 [00:01<00:03, 20.69it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:01<00:03, 20.90it/s]Computing mean-so-far PPL:  32%|███▏      | 32/100 [00:01<00:03, 21.04it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:01<00:03, 21.05it/s]Computing mean-so-far PPL:  38%|███▊      | 38/100 [00:01<00:02, 21.07it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:01<00:02, 21.11it/s]Computing mean-so-far PPL:  44%|████▍     | 44/100 [00:02<00:02, 21.20it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:02<00:02, 21.15it/s]Computing mean-so-far PPL:  50%|█████     | 50/100 [00:02<00:02, 21.24it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:02<00:02, 21.35it/s]Computing mean-so-far PPL:  56%|█████▌    | 56/100 [00:02<00:02, 21.31it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:02<00:01, 21.20it/s]Computing mean-so-far PPL:  62%|██████▏   | 62/100 [00:02<00:01, 21.19it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:03<00:01, 21.28it/s]Computing mean-so-far PPL:  68%|██████▊   | 68/100 [00:03<00:01, 21.19it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:03<00:01, 21.20it/s]Computing mean-so-far PPL:  74%|███████▍  | 74/100 [00:03<00:01, 21.20it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:03<00:01, 21.17it/s]Computing mean-so-far PPL:  80%|████████  | 80/100 [00:03<00:00, 21.34it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:03<00:00, 21.41it/s]Computing mean-so-far PPL:  86%|████████▌ | 86/100 [00:04<00:00, 21.47it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:04<00:00, 21.45it/s]Computing mean-so-far PPL:  92%|█████████▏| 92/100 [00:04<00:00, 21.47it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:04<00:00, 21.41it/s]Computing mean-so-far PPL:  98%|█████████▊| 98/100 [00:04<00:00, 21.37it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.02it/s]
+wandb: updating run metadata; uploading artifact run-jllli1b9-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_045cc2d2482b8d65f7b6.table.json
+wandb: uploading artifact run-jllli1b9-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▂▃▅█████████▇▇▆▆▆▆▆▅▅▅▄▃▃▃▃▂▂▁▁▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm █▂▂▂▂▂▁▁▂▂▁▁▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac █▇▆▄▄▅▃▆▄▅▆▇▄▃▄█▃█▅▁▅▄▄▄▇▃▃█▃▃▅▄▂▂▇▃▅▃▄▇
+wandb:  grad_top/0_readout_out.weight ▃█▅▃▃▂▂▃▄▂▃▃▂▂▂▁▁▁▁▁▁▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂
+wandb: grad_top/0_readout_proj.weight ▆▆▄█▆▃▂▂▃▄▂▃▃▃▂▂▂▂▁▂▂▂▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▄▃▄▄█▂▃▃▂▃▃▂▃▂▂▂▂▃▃▂▂▂▃▃▂▂▂▂▁▂▂▁▁▂▂▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight ▅█▄▄▄▃▄▃▆▃▄▄▃▃▃▃▃▃▃▂▂▂▂▃▂▂▁▁▂▂▁▂▁▂▁▁▁▁▁▃
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.31921
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.10292
+wandb:  grad_top/0_readout_out.weight 4.90918
+wandb: grad_top/0_readout_proj.weight 1.12737
+wandb:  grad_top/1_readout_out.weight 0.68495
+wandb: grad_top/1_readout_proj.weight 4.33254
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(62.46M_d256_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-180801 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/jllli1b9
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_180830-jllli1b9/logs
+Inference time: 4.76s, Tokens/sec: 42993.72, Memory: 4624.37MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(62.46M_d256_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-180801_report.txt
+[2025-12-16 18:26:21,654] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 18:26:23,667] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_182653-e9wjshho
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(45.48M_d512_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-182624
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/e9wjshho
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=512, ngrc_lag=48, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=512, lag=48, poly_degree=1, phi_dim=24833, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 45.48M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.4236979484558105, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 159996.34393463397, max_mem_mb: 25187.95008
+[log] train loss: 5.720587730407715, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 163768.52319606504, max_mem_mb: 25187.95008
+[log] train loss: 6.0290985107421875, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 159706.26733514108, max_mem_mb: 25187.951104
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 15.30it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:05, 18.26it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 19.26it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:00<00:04, 19.65it/s]Computing mean-so-far PPL:  14%|█▍        | 14/100 [00:00<00:04, 19.89it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 19.84it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:00<00:04, 20.08it/s]Computing mean-so-far PPL:  22%|██▏       | 22/100 [00:01<00:03, 20.25it/s]Computing mean-so-far PPL:  25%|██▌       | 25/100 [00:01<00:03, 20.27it/s]Computing mean-so-far PPL:  28%|██▊       | 28/100 [00:01<00:03, 20.27it/s]Computing mean-so-far PPL:  31%|███       | 31/100 [00:01<00:03, 20.29it/s]Computing mean-so-far PPL:  34%|███▍      | 34/100 [00:01<00:03, 20.29it/s]Computing mean-so-far PPL:  37%|███▋      | 37/100 [00:01<00:03, 20.42it/s]Computing mean-so-far PPL:  40%|████      | 40/100 [00:01<00:02, 20.61it/s]Computing mean-so-far PPL:  43%|████▎     | 43/100 [00:02<00:02, 20.74it/s]Computing mean-so-far PPL:  46%|████▌     | 46/100 [00:02<00:02, 20.71it/s]Computing mean-so-far PPL:  49%|████▉     | 49/100 [00:02<00:02, 20.70it/s]Computing mean-so-far PPL:  52%|█████▏    | 52/100 [00:02<00:02, 20.67it/s]Computing mean-so-far PPL:  55%|█████▌    | 55/100 [00:02<00:02, 20.67it/s]Computing mean-so-far PPL:  58%|█████▊    | 58/100 [00:02<00:02, 20.58it/s]Computing mean-so-far PPL:  61%|██████    | 61/100 [00:03<00:01, 20.59it/s]Computing mean-so-far PPL:  64%|██████▍   | 64/100 [00:03<00:01, 20.61it/s]Computing mean-so-far PPL:  67%|██████▋   | 67/100 [00:03<00:01, 20.72it/s]Computing mean-so-far PPL:  70%|███████   | 70/100 [00:03<00:01, 20.67it/s]Computing mean-so-far PPL:  73%|███████▎  | 73/100 [00:03<00:01, 20.93it/s]Computing mean-so-far PPL:  76%|███████▌  | 76/100 [00:03<00:01, 21.17it/s]Computing mean-so-far PPL:  79%|███████▉  | 79/100 [00:03<00:00, 21.39it/s]Computing mean-so-far PPL:  82%|████████▏ | 82/100 [00:04<00:00, 21.34it/s]Computing mean-so-far PPL:  85%|████████▌ | 85/100 [00:04<00:00, 21.41it/s]Computing mean-so-far PPL:  88%|████████▊ | 88/100 [00:04<00:00, 21.44it/s]Computing mean-so-far PPL:  91%|█████████ | 91/100 [00:04<00:00, 21.53it/s]Computing mean-so-far PPL:  94%|█████████▍| 94/100 [00:04<00:00, 21.57it/s]Computing mean-so-far PPL:  97%|█████████▋| 97/100 [00:04<00:00, 21.43it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 21.41it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.67it/s]
+wandb: updating run metadata; uploading artifact run-e9wjshho-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_7d822e75dd14957fda46.table.json
+wandb: uploading artifact run-e9wjshho-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▄▆▆▇██████▇▇▇▇▇▇▆▆▆▅▅▅▄▄▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▃▃▅▃▂▃▄▃▄▄▃█▄▆▅█▅▆▄▃▃▅▆▃▂▄▅▅▄▅▂▄▂▃▃▃▅▄▁▅
+wandb:  grad_top/0_readout_out.weight ▃▆▆▆▇▃▂▁▁▂▂▁▂▃▁▂▂▁▂▂▅▃▂▄▁█▁▂▂▂▁▇▂▄█▂▁▄▅▂
+wandb: grad_top/0_readout_proj.weight ▃▂▁▃▃▄▃▂▄▃▂▂▃▃▂▃▃▃▂▃█▅▆▂▂▃▃▃▂▂▂▆▁▁▃▂▄▁▁▂
+wandb:  grad_top/1_readout_out.weight ▇█▇▅▄▃▅▂▄▆▂▂▅▄█▂▇▃▄▃▁▄▅▂▂▄▁▃▃▁▃▁▁▄▁▆▄▂▁▃
+wandb: grad_top/1_readout_proj.weight ▂▂▂▂▂▁▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▂▂█▁
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.51885
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.28265
+wandb:  grad_top/0_readout_out.weight 0.77859
+wandb: grad_top/0_readout_proj.weight 0.44064
+wandb:  grad_top/1_readout_out.weight 0.2736
+wandb: grad_top/1_readout_proj.weight 0.6106
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(45.48M_d512_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-182624 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/e9wjshho
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_182653-e9wjshho/logs
+Inference time: 4.84s, Tokens/sec: 42273.59, Memory: 4250.55MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(45.48M_d512_lag48_poly1_rank512_lr0.0005_bs200_seq256_20251216-182624_report.txt
+[2025-12-16 18:38:34,856] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 18:38:36,806] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_183910-botss92l
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(58.07M_d512_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-183837
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/botss92l
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=512, ngrc_lag=96, ngrc_poly_degree=1, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=512, lag=96, poly_degree=1, phi_dim=49409, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 58.07M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.561586856842041, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 110984.20469247209, max_mem_mb: 30296.377856
+[log] train loss: 5.838605880737305, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 113065.22870847768, max_mem_mb: 30296.377856
+[log] train loss: 6.128628730773926, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 112266.21724474645, max_mem_mb: 30296.37888
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 16.01it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:04, 19.18it/s]Computing mean-so-far PPL:   7%|▋         | 7/100 [00:00<00:04, 19.39it/s]Computing mean-so-far PPL:  10%|█         | 10/100 [00:00<00:04, 19.75it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:00<00:04, 19.90it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 19.97it/s]Computing mean-so-far PPL:  18%|█▊        | 18/100 [00:00<00:04, 19.90it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:01<00:03, 19.92it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 20.13it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 20.19it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 20.29it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:03, 20.28it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:03, 20.35it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:02, 20.37it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:02<00:02, 20.34it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:02<00:02, 20.35it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 20.27it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 20.34it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:02, 20.42it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:02, 20.55it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 20.57it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:03<00:01, 20.71it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:03<00:01, 20.58it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 20.55it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 20.54it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 20.65it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:01, 20.71it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:03<00:00, 20.56it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:04<00:00, 20.56it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:04<00:00, 20.47it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:04<00:00, 20.43it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 20.48it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 20.43it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 20.43it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.31it/s]
+wandb: updating run metadata; uploading artifact run-botss92l-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_5ff80bff9d64680703b7.table.json
+wandb: uploading artifact run-botss92l-mean_so_far_ppl_curve_table; uploading history steps 1953-1954, summary, console lines 6-8
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▂▄▅███████▇▇▇▇▆▆▆▆▅▅▅▅▅▅▃▃▃▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▅▇▇▇▅▄▅▄▃▄▄▂▄█▂▃▃▃▂▂▃▂▃▂▂▂▂▂▃▂▁▂▁▂▁▂▁▂▂▂
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▃▂▂▄▂▂▁▂▄▃▃▃▄▁▂▁▂█▂▃▅▂▂▂▃▂▂▂▂▂▁▃▂▂▂▃▂▃▃
+wandb:  grad_top/0_readout_out.weight ▄▃▄▅▃█▄▃▄▃▂▂▃▃▃▂▂▆▂▃▄▂▅▂▂▂▄▂▂▂▂▂▂▂▁▂▁▃▂▂
+wandb: grad_top/0_readout_proj.weight █▃▃▄▃▃▃▄▃▃▂▂▂▂▂▂▂▁▁▂▂▁▁▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂
+wandb:  grad_top/1_readout_out.weight █▅▆▅▃▃▄▆▄▃▆▃▄▄▂▄▄▄▆▃▄▃▁▃▂▃▂▂▂▄▂▃▁▃▃▂▂▃▁▂
+wandb: grad_top/1_readout_proj.weight █▅█▅▄▃▃▄▄▃▄▃▄▄▄▃▂▂▅▂▃▁▂▁▂▂▂▂▂▃▁▂▁▂▁▁▃▁▁▂
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 0.60549
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.2214
+wandb:  grad_top/0_readout_out.weight 0.53612
+wandb: grad_top/0_readout_proj.weight 0.4886
+wandb:  grad_top/1_readout_out.weight 0.35727
+wandb: grad_top/1_readout_proj.weight 0.51393
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(58.07M_d512_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-183837 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/botss92l
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_183910-botss92l/logs
+Inference time: 4.93s, Tokens/sec: 41554.64, Memory: 4528.55MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(58.07M_d512_lag96_poly1_rank512_lr0.0005_bs200_seq256_20251216-183837_report.txt
+[2025-12-16 18:56:02,304] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 18:56:08,316] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_185645-kgthento
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(70.65M_d512_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-185610
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/kgthento
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=512, ngrc_lag=48, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=512, lag=48, poly_degree=3, phi_dim=73985, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 70.65M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 6.774295806884766, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 94318.21490916447, max_mem_mb: 32887.541248
+[log] train loss: 5.665337085723877, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 96251.05282589915, max_mem_mb: 32887.541248
+[log] train loss: 5.822883129119873, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 95384.04754838812, max_mem_mb: 32887.542272
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 15.85it/s]Computing mean-so-far PPL:   4%|▍         | 4/100 [00:00<00:05, 17.55it/s]Computing mean-so-far PPL:   6%|▌         | 6/100 [00:00<00:05, 18.05it/s]Computing mean-so-far PPL:   8%|▊         | 8/100 [00:00<00:04, 18.53it/s]Computing mean-so-far PPL:  10%|█         | 10/100 [00:00<00:04, 19.03it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:00<00:04, 19.56it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 19.88it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:00<00:04, 19.99it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:01<00:03, 19.97it/s]Computing mean-so-far PPL:  24%|██▍       | 24/100 [00:01<00:03, 20.15it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:01<00:03, 20.16it/s]Computing mean-so-far PPL:  30%|███       | 30/100 [00:01<00:03, 20.23it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:01<00:03, 20.23it/s]Computing mean-so-far PPL:  36%|███▌      | 36/100 [00:01<00:03, 20.30it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:01<00:03, 20.28it/s]Computing mean-so-far PPL:  42%|████▏     | 42/100 [00:02<00:02, 20.32it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:02<00:02, 20.41it/s]Computing mean-so-far PPL:  48%|████▊     | 48/100 [00:02<00:02, 20.42it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:02<00:02, 20.50it/s]Computing mean-so-far PPL:  54%|█████▍    | 54/100 [00:02<00:02, 20.51it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:02<00:02, 20.51it/s]Computing mean-so-far PPL:  60%|██████    | 60/100 [00:02<00:01, 20.55it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:03<00:01, 20.60it/s]Computing mean-so-far PPL:  66%|██████▌   | 66/100 [00:03<00:01, 20.48it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:03<00:01, 20.44it/s]Computing mean-so-far PPL:  72%|███████▏  | 72/100 [00:03<00:01, 20.36it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:03<00:01, 20.33it/s]Computing mean-so-far PPL:  78%|███████▊  | 78/100 [00:03<00:01, 20.30it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:04<00:00, 20.34it/s]Computing mean-so-far PPL:  84%|████████▍ | 84/100 [00:04<00:00, 20.46it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:04<00:00, 20.59it/s]Computing mean-so-far PPL:  90%|█████████ | 90/100 [00:04<00:00, 20.70it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:04<00:00, 20.53it/s]Computing mean-so-far PPL:  96%|█████████▌| 96/100 [00:04<00:00, 20.51it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:04<00:00, 20.54it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.21it/s]
+wandb: updating run metadata; uploading artifact run-kgthento-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_41ce5143e8ee7d0e0846.table.json
+wandb: uploading artifact run-kgthento-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▁▂▅▇██████▇▇▇▇▇▇▇▇▆▆▅▅▅▄▄▃▃▃▂▂▂▂▁▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▂▃▂▅█▅▃▂▆▂▁▁▂▂▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▇▃▁▄▂▃▄▄▄▆▃▃▂▃▄▆▄▅▆▄▂▅█▅▅▂▃▃▃▃▄▃▄▅▃▂▆▇▄▅
+wandb:  grad_top/0_readout_out.weight ▃▄▃▂▃▂▇▃▃▃▃▄▃▄▄▃█▃▂▂▂▂▅▂▂▂▁▁▂▁▁▁▁▁▁▁▁▁▁▂
+wandb: grad_top/0_readout_proj.weight ▃▃█▃▄▄▂▂▂▂▁▁▁▂▂▂▁▁▂▁▁▁▂▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▂▂▄█▄▂▂▂▂▂▂▂▂▂▁▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight ▄▄▃▃▄▇██▃▃▃▃▅▆▃▃▆▂▃▂▂▃▄▃▅▃▂▃▂▂▁▂▂▂▁▁▁▁▁▂
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.35131
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.18197
+wandb:  grad_top/0_readout_out.weight 4.91511
+wandb: grad_top/0_readout_proj.weight 1.16969
+wandb:  grad_top/1_readout_out.weight 0.6765
+wandb: grad_top/1_readout_proj.weight 4.86128
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(70.65M_d512_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-185610 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/kgthento
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_185645-kgthento/logs
+Inference time: 4.95s, Tokens/sec: 41336.15, Memory: 4674.96MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(70.65M_d512_lag48_poly3_rank512_lr0.0005_bs200_seq256_20251216-185610_report.txt
+[2025-12-16 19:16:09,332] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 19:16:15,171] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_191650-vzm3vuxd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(108.40M_d512_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-191616
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/vzm3vuxd
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=512, ngrc_lag=96, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=512, lag=96, poly_degree=3, phi_dim=147713, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 108.40M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 9.065709114074707, step: 500, tokens_seen_global: 25600000, tokens_per_sec_global: 57763.52465290958, max_mem_mb: 45696.68352
+[log] train loss: 6.118512153625488, step: 1000, tokens_seen_global: 51200000, tokens_per_sec_global: 58807.56959481876, max_mem_mb: 45696.68352
+[log] train loss: 6.040842533111572, step: 1500, tokens_seen_global: 76800000, tokens_per_sec_global: 58824.95485752743, max_mem_mb: 45696.684544
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   2%|▏         | 2/100 [00:00<00:06, 15.88it/s]Computing mean-so-far PPL:   4%|▍         | 4/100 [00:00<00:05, 17.99it/s]Computing mean-so-far PPL:   7%|▋         | 7/100 [00:00<00:04, 19.05it/s]Computing mean-so-far PPL:  10%|█         | 10/100 [00:00<00:04, 19.59it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:00<00:04, 19.98it/s]Computing mean-so-far PPL:  16%|█▌        | 16/100 [00:00<00:04, 20.22it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:00<00:03, 20.32it/s]Computing mean-so-far PPL:  22%|██▏       | 22/100 [00:01<00:03, 20.39it/s]Computing mean-so-far PPL:  25%|██▌       | 25/100 [00:01<00:03, 20.47it/s]Computing mean-so-far PPL:  28%|██▊       | 28/100 [00:01<00:03, 20.53it/s]Computing mean-so-far PPL:  31%|███       | 31/100 [00:01<00:03, 20.50it/s]Computing mean-so-far PPL:  34%|███▍      | 34/100 [00:01<00:03, 20.56it/s]Computing mean-so-far PPL:  37%|███▋      | 37/100 [00:01<00:03, 20.58it/s]Computing mean-so-far PPL:  40%|████      | 40/100 [00:01<00:02, 20.58it/s]Computing mean-so-far PPL:  43%|████▎     | 43/100 [00:02<00:02, 20.54it/s]Computing mean-so-far PPL:  46%|████▌     | 46/100 [00:02<00:02, 20.63it/s]Computing mean-so-far PPL:  49%|████▉     | 49/100 [00:02<00:02, 20.76it/s]Computing mean-so-far PPL:  52%|█████▏    | 52/100 [00:02<00:02, 20.75it/s]Computing mean-so-far PPL:  55%|█████▌    | 55/100 [00:02<00:02, 20.78it/s]Computing mean-so-far PPL:  58%|█████▊    | 58/100 [00:02<00:02, 20.85it/s]Computing mean-so-far PPL:  61%|██████    | 61/100 [00:02<00:01, 20.74it/s]Computing mean-so-far PPL:  64%|██████▍   | 64/100 [00:03<00:01, 20.75it/s]Computing mean-so-far PPL:  67%|██████▋   | 67/100 [00:03<00:01, 20.75it/s]Computing mean-so-far PPL:  70%|███████   | 70/100 [00:03<00:01, 20.74it/s]Computing mean-so-far PPL:  73%|███████▎  | 73/100 [00:03<00:01, 20.82it/s]Computing mean-so-far PPL:  76%|███████▌  | 76/100 [00:03<00:01, 20.85it/s]Computing mean-so-far PPL:  79%|███████▉  | 79/100 [00:03<00:01, 20.88it/s]Computing mean-so-far PPL:  82%|████████▏ | 82/100 [00:03<00:00, 20.87it/s]Computing mean-so-far PPL:  85%|████████▌ | 85/100 [00:04<00:00, 20.86it/s]Computing mean-so-far PPL:  88%|████████▊ | 88/100 [00:04<00:00, 20.89it/s]Computing mean-so-far PPL:  91%|█████████ | 91/100 [00:04<00:00, 20.98it/s]Computing mean-so-far PPL:  94%|█████████▍| 94/100 [00:04<00:00, 20.85it/s]Computing mean-so-far PPL:  97%|█████████▋| 97/100 [00:04<00:00, 20.84it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.93it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:04<00:00, 20.58it/s]
+wandb: updating run metadata; uploading artifact run-vzm3vuxd-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_1955_81f5e34d0c5caaa578fa.table.json
+wandb: uploading artifact run-vzm3vuxd-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:                     current_lr ▂▄▇▇████▇▇▇▇▇▇▇▆▅▅▅▅▄▄▃▃▃▃▂▂▂▂▂▂▂▁▁▁▁▁▁▁
+wandb:       grad/preclip/global_norm ▂▃▃▄▂█▅▄▃▄▇▃▄▂▁▁▁▁▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/inf_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            grad/preclip/layers ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/nan_count ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         grad/preclip/zero_frac ▂▂▃█▂▂▂▂▃▁▂▂▂▂▃▄▅▃▂▂▂▂▂▂▂▃▂▃▂▂▂▄▂▁▂▆▃▂▁▁
+wandb:  grad_top/0_readout_out.weight ▂▂▂▆█▂▂▂▂▄▂▂▂▂▂▃▂▄▅▄▂▃▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: grad_top/0_readout_proj.weight ▆▄▅▆█▄▃▂▂▁▁▂▂▂▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:  grad_top/1_readout_out.weight ▃▃▃█▆▂▄▃▂▃▂▂▂▃▂▂▂▃▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: grad_top/1_readout_proj.weight ▆▇▅█▅▄▄▃▄▅██▄▆▄▄▇▆▅▄▃▅▃▃▃▂▄▃▂▂▂▂▂▂▂▁▂▂▁▁
+wandb:                            +15 ...
+wandb: 
+wandb: Run summary:
+wandb:                     current_lr 0
+wandb:       grad/preclip/global_norm 1.71914
+wandb:         grad/preclip/inf_count 0
+wandb:            grad/preclip/layers 3
+wandb:         grad/preclip/nan_count 0
+wandb:         grad/preclip/zero_frac 0.1186
+wandb:  grad_top/0_readout_out.weight 1.86295
+wandb: grad_top/0_readout_proj.weight 1.50016
+wandb:  grad_top/1_readout_out.weight 0.83952
+wandb: grad_top/1_readout_proj.weight 1.84413
+wandb:                            +15 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(108.40M_d512_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-191616 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/vzm3vuxd
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 2 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251216_191650-vzm3vuxd/logs
+Inference time: 4.87s, Tokens/sec: 42073.26, Memory: 5505.44MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(108.40M_d512_lag96_poly3_rank512_lr0.0005_bs200_seq256_20251216-191616_report.txt
+[2025-12-16 19:46:58,569] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 19:47:04,612] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_194739-vtwjhv3g
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(55.29M_d32_lag256_poly9_rank512_lr0.0005_bs200_seq256_20251216-194706
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/vtwjhv3g
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=32, ngrc_lag=256, ngrc_poly_degree=9, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=32, lag=256, poly_degree=9, phi_dim=73985, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 55.29M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 1085, in <module>
+    main()
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 1078, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 834, in NGRC_experiment
+    "train_perplexity": math.exp(loss.item()),
+                        ^^^^^^^^^^^^^^^^^^^^^
+OverflowError: math range error
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mNGRC_LM(55.29M_d32_lag256_poly9_rank512_lr0.0005_bs200_seq256_20251216-194706[0m at: [34mhttps://wandb.ai/telutelu/NGRC_LanguageModel/runs/vtwjhv3g[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251216_194739-vtwjhv3g/logs[0m
+[2025-12-16 19:48:33,714] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-16 19:48:39,547] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251216_194909-wuldz5sd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(55.29M_d32_lag256_poly9_rank512_lr0.0005_bs200_seq256_20251216-194841
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/wuldz5sd
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=200, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=256, total_tokens=100000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=32, ngrc_lag=256, ngrc_poly_degree=9, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name=None, api_file='api.txt', hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=32, lag=256, poly_degree=9, phi_dim=73985, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 55.29M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 1085, in <module>
+    main()
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 1078, in main
+    NGRC_experiment(lr=args.learning_rate)
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 834, in NGRC_experiment
+    "train_perplexity": math.exp(loss.item()),
+                        ^^^^^^^^^^^^^^^^^^^^^
+OverflowError: math range error
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mNGRC_LM(55.29M_d32_lag256_poly9_rank512_lr0.0005_bs200_seq256_20251216-194841[0m at: [34mhttps://wandb.ai/telutelu/NGRC_LanguageModel/runs/wuldz5sd[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251216_194909-wuldz5sd/logs[0m

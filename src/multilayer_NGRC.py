@@ -805,7 +805,7 @@ def NGRC_experiment(lr):
     if (not distributed) or args.local_rank == 0:
         run_name = args.wandb_run_name or (
             f"{model.arch_name}({param_millions:.2f}M_d{args.ngrc_d_model}"
-            f"_lag{args.ngrc_lag}_poly{args.ngrc_poly_degree}_rank{args.ngrc_readout_rank}_lr{args.learning_rate}"
+            f"_lag{args.ngrc_lag}_poly{args.ngrc_poly_degree}_layer{args.ngrc_num_layers}_rank{args.ngrc_readout_rank}_lr{args.learning_rate}"
             f"_bs{args.local_batch_size}_seq{args.seq_len}_{run_id}"
         )
         wandb.init(project=args.wandb_project, name=run_name, config=vars(args))
