@@ -17,3 +17,6 @@
 ./src/hf_upload/*
 /src/checkpoint_ngrc/*
 src/wandb
+src/wandb/debug-internal.log
+src/wandb/debug.log
+src/wandb/latest-run

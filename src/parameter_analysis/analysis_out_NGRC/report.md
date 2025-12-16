@@ -1,7 +1,7 @@
 # Hyperparameter Contribution Report
 
-- Files parsed: 48
-- Rows used (target not-null): 46
+- Files parsed: 87
+- Rows used (target not-null): 85
 
 ## Target
 
@@ -9,7 +9,7 @@
 
 ## CV sanity check
 
-- CV MAE (mean ± std): 38.8542 ± 17.605
+- CV MAE (mean ± std): 27.5626 ± 9.27203
 
 ## Best / Worst run
 
@@ -20,11 +20,11 @@
 
 | param               |   importance_mean |   importance_std |
 |:--------------------|------------------:|-----------------:|
-| hp.ngrc_d_model     |      71.352       |     12.696       |
-| hp.ngrc_poly_degree |      40.8802      |      5.35301     |
-| hp.ngrc_lag         |      18.373       |      3.90808     |
-| hp.local_batch_size |      -1.50768e-14 |      1.82263e-14 |
-| hp.learning_rate    |      -1.52323e-14 |      1.54955e-14 |
+| hp.ngrc_d_model     |      77.082       |     12.6176      |
+| hp.ngrc_poly_degree |      44.9719      |      7.52365     |
+| hp.ngrc_lag         |      14.0526      |      3.00505     |
+| hp.local_batch_size |       2.75335e-15 |      2.38458e-14 |
+| hp.learning_rate    |       2.6823e-15  |      2.14876e-14 |
 
 ## Numeric params: Spearman correlation hint (direction)
 
@@ -33,8 +33,8 @@
 
 | param               |   spearman_rho |     p_value |   n |     min |     max |
 |:--------------------|---------------:|------------:|----:|--------:|--------:|
-| hp.ngrc_d_model     |     -0.679286  | 2.10191e-07 |  46 | 64      | 512     |
-| hp.ngrc_lag         |      0.442599  | 0.00206973  |  46 | 16      | 256     |
-| hp.ngrc_poly_degree |     -0.380945  | 0.0107366   |  44 |  1      |   7     |
-| hp.local_batch_size |     -0.0481776 | 0.750524    |  46 | 32      | 200     |
-| hp.learning_rate    |      0.0481776 | 0.750524    |  46 |  0.0005 |   0.001 |
+| hp.ngrc_d_model     |     -0.703073  | 6.31147e-14 |  85 | 64      | 512     |
+| hp.ngrc_lag         |      0.418505  | 6.72319e-05 |  85 | 16      | 256     |
+| hp.ngrc_poly_degree |     -0.34934   | 0.00120794  |  83 |  1      |   7     |
+| hp.local_batch_size |     -0.0949006 | 0.387622    |  85 | 32      | 200     |
+| hp.learning_rate    |      0.0949006 | 0.387622    |  85 |  0.0005 |   0.001 |
