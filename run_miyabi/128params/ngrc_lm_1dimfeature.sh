@@ -25,42 +25,50 @@ conda activate esn
 cd ../../src
 
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 16 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 5 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 32 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 10 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 48 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 15 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 64 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 20 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 96 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 25 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 16 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 64 --ngrc_lag 30 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 32 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 5 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 48 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 10 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 64 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 15 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 96 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 20 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 16 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 25 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 32 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 128 --ngrc_lag 30 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 48 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 5 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 64 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 10 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 96 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 15 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 16 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 20 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 32 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 25 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 48 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 256 --ngrc_lag 30 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 64 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 5 --ngrc_poly_degree 3
 
-python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 96 --ngrc_poly_degree 4
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 10 --ngrc_poly_degree 3
+
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 15 --ngrc_poly_degree 3
+
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 20 --ngrc_poly_degree 3
+
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 25 --ngrc_poly_degree 3
+
+python ngrc_lm_low_rank.py --local_batch_size 200 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 512 --ngrc_lag 30 --ngrc_poly_degree 3
