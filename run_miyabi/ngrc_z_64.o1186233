@@ -1,0 +1,88 @@
+[2025-12-18 16:45:05,676] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-18 16:45:07,777] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: creating run
+wandb: Tracking run with wandb version 0.21.4
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251218_164552-4cd6zwau
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run GPT(RoPE)_116.72M_batch_size150_seq_len256_20251218-164551
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/4cd6zwau
+parameter count: 116.72M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+wandb: WARNING Tried to log to step 1001 that is less than the current step 1003. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+wandb: WARNING Tried to log to step 1002 that is less than the current step 1003. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+wandb: WARNING Tried to log to step 2001 that is less than the current step 2003. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+wandb: WARNING Tried to log to step 2002 that is less than the current step 2003. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: updating run metadata; uploading artifact run-4cd6zwau-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_2606_6e5f05369c5979f67a4e.table.json
+wandb: uploading artifact run-4cd6zwau-mean_so_far_ppl_curve_table
+wandb: 
+wandb: Run history:
+wandb:            current_lr ▄▇███████▇▇▇▇▆▅▅▅▅▅▄▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁
+wandb:      inference_mem_MB ▁
+wandb:        inference_time ▁
+wandb: inference_tok_per_sec ▁
+wandb:            max_mem_mb ▁▁▁▁████████████████████████████████████
+wandb:             max_steps ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          seenedtokens ▁▁▁▁▁▁▁▂▂▂▂▂▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▆▆▆▆▆▇▇███
+wandb:   seenedtokens_global ▁▁▁▂▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▄▄▄▄▄▅▅▅▅▅▅▅▅▆▆▇▇▇▇█
+wandb:                  step ▁▁▁▁▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇▇██
+wandb:        tokens_per_sec ▁▁▃▅▅▇▇▇▇▇▇▇▇▇▇█████████████████████████
+wandb:                    +5 ...
+wandb: 
+wandb: Run summary:
+wandb:            current_lr 0
+wandb:      inference_mem_MB 3721.06291
+wandb:        inference_time 6.44808
+wandb: inference_tok_per_sec 31761.39223
+wandb:            max_mem_mb 40006.50394
+wandb:             max_steps 2605
+wandb:          seenedtokens 100032000
+wandb:   seenedtokens_global 100032000
+wandb:                  step 2605
+wandb:        tokens_per_sec 211875.05204
+wandb:                    +5 ...
+wandb: 
+wandb: 🚀 View run GPT(RoPE)_116.72M_batch_size150_seq_len256_20251218-164551 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/4cd6zwau
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 5 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251218_164552-4cd6zwau/logs
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 2048 トークンまで計測します…
+→ 8000 ブロックを作成
+Inference time: 6.45s, Tokens/sec: 31761.39, Memory: 3721.06MB
+📄 Training report written to ./GPT(RoPE)_116.72M_batch_size150_seq_len256_20251218-164551_report.txt
