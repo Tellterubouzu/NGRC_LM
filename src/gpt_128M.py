@@ -90,7 +90,7 @@ class BinShardsDataset(IterableDataset):
             if i% global_stride != global_idx:
                 continue
             toks = self._load_uint16_tokens(f)
-            for j in range(0, len(toks) - self.seq_len + 1, self.seq_len)
+            for j in range(0, len(toks) - self.seq_len + 1, self.seq_len):
                 yield toks[j : j + self.seq_len].long()
 
 
@@ -462,8 +462,8 @@ def main():
         os.environ["WANDB_API_KEY"] = api_keys["WANDB_API_KEY"]
     if "HF_READ_TOKEN" in api_keys:
         from huggingface_hub import login
-    distributed = args.use_deepspeed and _HAS_DS and torch.cuda.is_available()
         login(token=api_keys["HF_WRITE_TOKEN"])
+    distributed = args.use_deepspeed and _HAS_DS and torch.cuda.is_available()
     if distributed:
         torch.cuda.set_device(args.local_rank)
         distributed = True
