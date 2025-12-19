@@ -499,7 +499,7 @@ def get_train_loader(tokenizer_path: str, path: str, seq_len: int, batch_size: i
         per_rank = (tot + ds.world_size - 1) // ds.world_size
         print(f"[data] BinShardsDataset: {tot} shards → {per_rank} / rank (world={ds.world_size})")
     else:
-        tok = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True)
+        tok = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True,add_special_tokens=True)
         ds = StreamingDataset(path, "train", tok, seq_len)
         print("[data] HF streaming dataset", path)
 
@@ -518,7 +518,7 @@ def get_validation_blocks(hf_dataset, tokenizer, seq_len, max_blocks=100):
     buffer = []
     for sample in hf_dataset:
         text = sample.get("text", "")
-        token_ids = tokenizer.encode(text, add_special_tokens=False)
+        token_ids = tokenizer.encode(text, add_special_tokens=True)
         buffer.extend(token_ids)
         while len(buffer) >= seq_len and len(blocks) < max_blocks:
             block = buffer[:seq_len]
@@ -672,7 +672,7 @@ def NGRC_experiment(lr):
     world_size = dist.get_world_size() if (distributed and dist.is_initialized()) else 1
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path, use_fast=True,add_special_tokens=True)
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.bos_token = tokenizer.eos_token
 
@@ -885,7 +885,7 @@ def NGRC_experiment(lr):
             if step % args.generate_every == 0 and ((not distributed) or args.local_rank == 0):
                 model.eval()
                 for prompt in ["Large Language model is "]:
-                    inp_ids = tokenizer.encode(prompt, add_special_tokens=False)
+                    inp_ids = tokenizer.encode(prompt, add_special_tokens=True)
                     inp = torch.tensor(inp_ids, dtype=torch.long).to(device)
                     generated = sample_sequence(
                         model if not distributed else model.module,
