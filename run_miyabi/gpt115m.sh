@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -q regular-g
+#PBS -q short-g
 #PBS -l select=1
-#PBS -l walltime=12:00:00 
+#PBS -l walltime=01:00:00 
 #PBS -W group_list=gp36
 #PBS -j oe
 #PBS -m abe
