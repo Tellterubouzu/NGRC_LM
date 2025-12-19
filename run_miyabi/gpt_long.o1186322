@@ -1,0 +1,21 @@
+[2025-12-18 17:13:45,099] [INFO] [real_accelerator.py:260:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-12-18 17:13:47,167] [INFO] [logging.py:107:log_dist] [Rank -1] [TorchCheckpointEngine] Initialized with serialization = False
+usage: gpt_128M.py [-h] [--local_rank LOCAL_RANK]
+                   [--deepspeed_config DEEPSPEED_CONFIG] [--use_deepspeed]
+                   [--local_batch_size LOCAL_BATCH_SIZE]
+                   [--use_gpu_amount USE_GPU_AMOUNT]
+                   [--learning_rate LEARNING_RATE]
+                   [--validate_every_steps VALIDATE_EVERY_STEPS]
+                   [--save_checkpoint_every_steps SAVE_CHECKPOINT_EVERY_STEPS]
+                   [--generate_every GENERATE_EVERY] [--seq_len SEQ_LEN]
+                   [--total_tokens TOTAL_TOKENS] [--epochs EPOCHS]
+                   [--grad_clip_norm GRAD_CLIP_NORM] [--beta1 BETA1]
+                   [--beta2 BETA2] [--weight_decay WEIGHT_DECAY]
+                   [--tokenizer_path TOKENIZER_PATH] [--n_embd N_EMBD]
+                   [--n_layer N_LAYER] [--n_head N_HEAD]
+                   [--dataset_path DATASET_PATH]
+                   [--val_dataset_path VAL_DATASET_PATH]
+                   [--wandb_project WANDB_PROJECT]
+                   [--wandb_run_name WANDB_RUN_NAME] [--api_file API_FILE]
+                   [--hf_repo HF_REPO] [--hf_private]
+gpt_128M.py: error: unrecognized arguments: --batch_size 50

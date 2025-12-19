@@ -611,7 +611,7 @@ def parse_args_ngrc():
     parser.add_argument("--wandb_project", type=str, default="NGRC_LanguageModel")
     parser.add_argument("--wandb_run_name", type=str, default=None)
     parser.add_argument("--api_file", type=str, default="api.txt")
-
+    parser.add_argument("--log_grad", action = "store_false")
     # HF
     parser.add_argument("--hf_repo", type=str, default=None)
     parser.add_argument("--hf_private", action="store_false")
@@ -797,22 +797,26 @@ def NGRC_experiment(lr):
 
             if distributed:
                 model.backward(loss)
-                log_gradients_wandb(model, step, tag="preclip")
+                if args.log_grad:
+                    log_gradients_wandb(model, step, tag="preclip")
                 # DeepSpeed の global grad norm をログしたければここに追加
 
                 if args.grad_clip_norm > 0:
                     torch.nn.utils.clip_grad_norm_(model.module.parameters(), args.grad_clip_norm)
-                    log_gradients_wandb(model, step, tag="postclip")
+                    if args.log_grad:
+                        log_gradients_wandb(model, step, tag="postclip")
 
                 model.step()
                 current_lr = model.get_lr()[0]
             else:
                 loss.backward()
-                log_gradients_wandb(model, step, tag="preclip")
+                if args.log_grad:
+                    log_gradients_wandb(model, step, tag="preclip")
 
                 if args.grad_clip_norm > 0:
                     torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip_norm)
-                    log_gradients_wandb(model, step, tag="postclip")
+                    if args.log_grad:
+                        log_gradients_wandb(model, step, tag="postclip")
 
                 optimizer.step()
                 scheduler.step()
