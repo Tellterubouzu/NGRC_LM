@@ -24,10 +24,10 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate esn
 
 cd ../../src
-python ngrc_lm_low_rank.py --local_batch_size 192 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 2048 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
+python ngrc_lm_low_rank.py --local_batch_size 128 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 4096 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
 
-python ngrc_lm_low_rank.py --local_batch_size 160 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 2048 --ngrc_lag 15 --ngrc_poly_degree 3 --log_grad
+python ngrc_lm_low_rank.py --local_batch_size 96 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 4096 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
 
-python ngrc_lm_low_rank.py --local_batch_size 128 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 2048 --ngrc_lag 20 --ngrc_poly_degree 3 --log_grad
+python ngrc_lm_low_rank.py --local_batch_size 64 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 4096 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
 
-python ngrc_lm_low_rank.py --local_batch_size 96 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 2048 --ngrc_lag 25 --ngrc_poly_degree 3 --log_grad
+python ngrc_lm_low_rank.py --local_batch_size 32 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 4096 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad

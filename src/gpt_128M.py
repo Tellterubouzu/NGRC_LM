@@ -41,7 +41,7 @@ import wandb
 from datasets import load_dataset
 from transformers import AutoTokenizer, get_cosine_schedule_with_warmup
 from huggingface_hub import HfApi, upload_folder
-
+from contextlib import nullcontext
 
 try:
     import deepspeed
@@ -79,14 +79,19 @@ class BinShardsDataset(IterableDataset):
         return mapped[HEADER_U16:]
 
     def __iter__(self):
-        for i, f in enumerate(self.files):
-            if i % self.world_size != self.rank:
+        worker = get_worker_info()
+        worker_id = worker.id if worker else 0
+        num_workers = worker.num_workers if worker else 1
+        
+        global_idx = self.rank * num_workers + worker_id
+        global_stride = self.world_size * num_workers
+
+        for i, f in enumerate(seld.files):
+            if i% global_stride != global_idx:
                 continue
             toks = self._load_uint16_tokens(f)
-            for j in range(0, len(toks) - self.seq_len + 1, self.seq_len):
+            for j in range(0, len(toks) - self.seq_len + 1, self.seq_len)
                 yield toks[j : j + self.seq_len].long()
-
-
 
 
 def load_api_keys(path):
@@ -191,6 +196,8 @@ class CausalSelfAttention(nn.Module):
         y = self.attn_drop(att) @ v
         y = y.transpose(1, 2).contiguous().view(B, T, C)
         y = self.resid_drop(y)
+
+
         return self.c_proj(y)
 
 
@@ -235,7 +242,7 @@ class GPT2LMHeadModel(nn.Module):
 
     def forward(self, input_ids: torch.LongTensor, labels: torch.LongTensor = None):
         B, T = input_ids.size()
-        x = self.wte(input_ids)
+        x = self.drop(self.wte(input_ids))
         for block in self.h:
             x = block(x)
         x = self.ln_f(x)
@@ -313,7 +320,7 @@ class StreamingDataset(IterableDataset):
             global_stride = self.world_size * num_workers
             if idx % global_stride != global_idx:
                 continue
-            toks = self.tokenizer(ex["text"], return_attention_mask=False)["input_ids"]
+            toks = self.tokenizer(ex["text"], return_attention_mask=False, add_special_tokens=True)["input_ids"]
             buf.extend(toks)
             while len(buf) >= self.seq_len:
                 yield torch.tensor(buf[: self.seq_len], dtype=torch.long)
@@ -324,7 +331,7 @@ def get_validation_blocks(hf_dataset, tokenizer, seq_len, max_blocks=100):
     buffer = []
     for sample in hf_dataset:
         text = sample.get("text", "")
-        token_ids = tokenizer.encode(text, add_special_tokens=False)
+        token_ids = tokenizer.encode(text, add_special_tokens=True)
         buffer.extend(token_ids)
         while len(buffer) >= seq_len and len(blocks) < max_blocks:
             block = buffer[:seq_len]
@@ -455,20 +462,16 @@ def main():
         os.environ["WANDB_API_KEY"] = api_keys["WANDB_API_KEY"]
     if "HF_READ_TOKEN" in api_keys:
         from huggingface_hub import login
-
+    distributed = args.use_deepspeed and _HAS_DS and torch.cuda.is_available()
         login(token=api_keys["HF_WRITE_TOKEN"])
-    if args.use_deepspeed and _HAS_DS and torch.cuda.device_count() > 1:
+    if distributed:
         torch.cuda.set_device(args.local_rank)
         distributed = True
     else:
         distributed = False
 
-    if args.use_deepspeed and _HAS_DS and torch.cuda.device_count() > 1:
-        torch.cuda.set_device(args.local_rank)
-        distributed = True
-    else:
-        distributed = False
-    world_size = dist.get_world_size() if (distributed and dist.is_initialized*()) else 1
+
+    world_size = dist.get_world_size() if (distributed and dist.is_initialized()) else 1
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # tokenizer (needed for val & generation)
@@ -613,7 +616,7 @@ def main():
         if step % args.generate_every == 0 and ((not distributed) or args.local_rank == 0):
             model.eval()
             for prompt in ["Hello,", "I'm"]:
-                inp_ids = tokenizer.encode(prompt, add_special_tokens=False)
+                inp_ids = tokenizer.encode(prompt, add_special_tokens=True)
                 inp = torch.tensor(inp_ids, dtype=torch.long).to(device)
                 generated = sample_sequence(
                     model if not distributed else model.module,
@@ -761,5 +764,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
