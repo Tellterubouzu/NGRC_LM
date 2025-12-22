@@ -499,7 +499,7 @@ def get_train_loader(tokenizer_path: str, path: str, seq_len: int, batch_size: i
         per_rank = (tot + ds.world_size - 1) // ds.world_size
         print(f"[data] BinShardsDataset: {tot} shards → {per_rank} / rank (world={ds.world_size})")
     else:
-        tok = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True,add_special_tokens=True)
+        tok = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True)
         ds = StreamingDataset(path, "train", tok, seq_len)
         print("[data] HF streaming dataset", path)
 
@@ -672,7 +672,7 @@ def NGRC_experiment(lr):
     world_size = dist.get_world_size() if (distributed and dist.is_initialized()) else 1
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path, use_fast=True,add_special_tokens=True)
+    tokenizer = AutoTokenizer.from_pretrained(args.tokenizer_path, use_fast=True)
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.bos_token = tokenizer.eos_token
 

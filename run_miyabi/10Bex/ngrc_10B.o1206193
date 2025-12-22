@@ -1,0 +1,321 @@
+/work/gp36/b20072/.bashrc: line 7: /work/gp36/b20072/.cargo/env: No such file or directory
+/work/gp36/b20072/.bashrc: line 10: rbenv: command not found
+/work/gp36/b20072/.bash_profile: line 9: /work/gp36/b20072/.cargo/env: No such file or directory
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run 2v1vctbj
+wandb: Tracking run with wandb version 0.23.1
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251221_234048-2v1vctbj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(113.51M_10BT_d2048_poly3_bs198)1
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/2v1vctbj
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=192, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=512, total_tokens=10000000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=2048, ngrc_lag=10, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name='NGRC_LM(113.51M_10BT_d2048_poly3_bs198)1', api_file='api.txt', log_grad=False, hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=2048, lag=10, poly_degree=3, phi_dim=61697, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 113.51M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Repo card metadata block was not found. Setting CardData to empty.
+[log] train loss: 7.480248928070068, step: 500, tokens_seen_global: 49152000, tokens_per_sec_global: 313029.0037731761, max_mem_mb: 59270.31552
+[log] train loss: 6.1882429122924805, step: 1000, tokens_seen_global: 98304000, tokens_per_sec_global: 317125.7140165931, max_mem_mb: 59270.31552
+[log] train loss: 5.772569179534912, step: 1500, tokens_seen_global: 147456000, tokens_per_sec_global: 318341.6490302765, max_mem_mb: 59270.316544
+[log] train loss: 5.800173759460449, step: 2000, tokens_seen_global: 196608000, tokens_per_sec_global: 319043.1427858312, max_mem_mb: 59270.316544
+[log] train loss: 6.128172397613525, step: 2500, tokens_seen_global: 245760000, tokens_per_sec_global: 319385.57174447185, max_mem_mb: 59270.316544
+[log] train loss: 5.34004020690918, step: 3000, tokens_seen_global: 294912000, tokens_per_sec_global: 319676.5648574969, max_mem_mb: 59270.316544
+[log] train loss: 5.417439937591553, step: 3500, tokens_seen_global: 344064000, tokens_per_sec_global: 319847.0657172612, max_mem_mb: 59270.316544
+[log] train loss: 5.640247821807861, step: 4000, tokens_seen_global: 393216000, tokens_per_sec_global: 320011.4032840131, max_mem_mb: 59270.316544
+[log] train loss: 5.288109302520752, step: 4500, tokens_seen_global: 442368000, tokens_per_sec_global: 320116.1004417309, max_mem_mb: 59270.316544
+[log] train loss: 5.101048469543457, step: 5000, tokens_seen_global: 491520000, tokens_per_sec_global: 320215.20827733056, max_mem_mb: 59270.316544
+[log] train loss: 5.169215202331543, step: 5500, tokens_seen_global: 540672000, tokens_per_sec_global: 320281.74963586533, max_mem_mb: 59270.316544
+[log] train loss: 5.3253912925720215, step: 6000, tokens_seen_global: 589824000, tokens_per_sec_global: 320346.6479115902, max_mem_mb: 59270.316544
+[log] train loss: 5.021446228027344, step: 6500, tokens_seen_global: 638976000, tokens_per_sec_global: 320371.1919871373, max_mem_mb: 59270.316544
+[log] train loss: 5.0659260749816895, step: 7000, tokens_seen_global: 688128000, tokens_per_sec_global: 320426.34847385157, max_mem_mb: 59270.316544
+[log] train loss: 5.028564453125, step: 7500, tokens_seen_global: 737280000, tokens_per_sec_global: 320458.24965049594, max_mem_mb: 59270.316544
+[log] train loss: 5.057959079742432, step: 8000, tokens_seen_global: 786432000, tokens_per_sec_global: 320487.92635523516, max_mem_mb: 59270.316544
+[log] train loss: 5.055926322937012, step: 8500, tokens_seen_global: 835584000, tokens_per_sec_global: 320500.654316361, max_mem_mb: 59270.316544
+[log] train loss: 5.075891017913818, step: 9000, tokens_seen_global: 884736000, tokens_per_sec_global: 320541.6838910754, max_mem_mb: 59270.316544
+[log] train loss: 5.002223968505859, step: 9500, tokens_seen_global: 933888000, tokens_per_sec_global: 320556.9599249069, max_mem_mb: 59270.316544
+[log] train loss: 4.942526817321777, step: 10000, tokens_seen_global: 983040000, tokens_per_sec_global: 320574.4909296205, max_mem_mb: 59270.316544
+[log] train loss: 5.133314609527588, step: 10500, tokens_seen_global: 1032192000, tokens_per_sec_global: 320589.25478574843, max_mem_mb: 59270.316544
+[log] train loss: 4.931004047393799, step: 11000, tokens_seen_global: 1081344000, tokens_per_sec_global: 320618.9956076299, max_mem_mb: 59270.316544
+[log] train loss: 4.878902435302734, step: 11500, tokens_seen_global: 1130496000, tokens_per_sec_global: 320635.1225437549, max_mem_mb: 59270.316544
+[log] train loss: 4.990886211395264, step: 12000, tokens_seen_global: 1179648000, tokens_per_sec_global: 320657.16443798965, max_mem_mb: 59270.316544
+[log] train loss: 4.955802917480469, step: 12500, tokens_seen_global: 1228800000, tokens_per_sec_global: 320671.6775146058, max_mem_mb: 59270.316544
+[log] train loss: 4.89230489730835, step: 13000, tokens_seen_global: 1277952000, tokens_per_sec_global: 320698.6214610439, max_mem_mb: 59270.316544
+[log] train loss: 4.930473804473877, step: 13500, tokens_seen_global: 1327104000, tokens_per_sec_global: 320708.4765456088, max_mem_mb: 59270.316544
+[log] train loss: 4.877286434173584, step: 14000, tokens_seen_global: 1376256000, tokens_per_sec_global: 320722.7379731102, max_mem_mb: 59270.316544
+[log] train loss: 4.927200794219971, step: 14500, tokens_seen_global: 1425408000, tokens_per_sec_global: 320731.34674668557, max_mem_mb: 59270.316544
+[log] train loss: 4.847500801086426, step: 15000, tokens_seen_global: 1474560000, tokens_per_sec_global: 320749.64709630987, max_mem_mb: 59270.316544
+[log] train loss: 4.981146812438965, step: 15500, tokens_seen_global: 1523712000, tokens_per_sec_global: 320760.217991299, max_mem_mb: 59270.316544
+[log] train loss: 4.938899040222168, step: 16000, tokens_seen_global: 1572864000, tokens_per_sec_global: 320775.27987258206, max_mem_mb: 59270.316544
+[log] train loss: 4.857735633850098, step: 16500, tokens_seen_global: 1622016000, tokens_per_sec_global: 320779.6324457391, max_mem_mb: 59270.316544
+[log] train loss: 4.874183177947998, step: 17000, tokens_seen_global: 1671168000, tokens_per_sec_global: 320798.6689578605, max_mem_mb: 59270.316544
+[log] train loss: 4.920948028564453, step: 17500, tokens_seen_global: 1720320000, tokens_per_sec_global: 320806.0358927457, max_mem_mb: 59270.316544
+[log] train loss: 4.897393226623535, step: 18000, tokens_seen_global: 1769472000, tokens_per_sec_global: 320819.3276541506, max_mem_mb: 59270.316544
+[log] train loss: 4.930257320404053, step: 18500, tokens_seen_global: 1818624000, tokens_per_sec_global: 320827.08200493694, max_mem_mb: 59270.316544
+[log] train loss: 5.0156331062316895, step: 19000, tokens_seen_global: 1867776000, tokens_per_sec_global: 320844.0037001163, max_mem_mb: 59270.316544
+[log] train loss: 5.030320644378662, step: 19500, tokens_seen_global: 1916928000, tokens_per_sec_global: 320850.7332643114, max_mem_mb: 59270.316544
+[log] train loss: 4.9711079597473145, step: 20000, tokens_seen_global: 1966080000, tokens_per_sec_global: 320858.88967154484, max_mem_mb: 59270.316544
+[log] train loss: 4.872238636016846, step: 20500, tokens_seen_global: 2015232000, tokens_per_sec_global: 320860.69201023947, max_mem_mb: 59270.316544
+[log] train loss: 4.876418113708496, step: 21000, tokens_seen_global: 2064384000, tokens_per_sec_global: 320872.2582513446, max_mem_mb: 59270.316544
+[log] train loss: 4.793017864227295, step: 21500, tokens_seen_global: 2113536000, tokens_per_sec_global: 320881.22391032765, max_mem_mb: 59270.316544
+[log] train loss: 4.904541969299316, step: 22000, tokens_seen_global: 2162688000, tokens_per_sec_global: 320889.41457833466, max_mem_mb: 59270.316544
+[log] train loss: 4.8659515380859375, step: 22500, tokens_seen_global: 2211840000, tokens_per_sec_global: 320894.12900866824, max_mem_mb: 59270.316544
+[log] train loss: 4.833505630493164, step: 23000, tokens_seen_global: 2260992000, tokens_per_sec_global: 320905.8864880429, max_mem_mb: 59270.316544
+[log] train loss: 4.798106670379639, step: 23500, tokens_seen_global: 2310144000, tokens_per_sec_global: 320911.71059458, max_mem_mb: 59270.316544
+[log] train loss: 4.862938404083252, step: 24000, tokens_seen_global: 2359296000, tokens_per_sec_global: 320919.4718940989, max_mem_mb: 59270.316544
+[log] train loss: 4.923051357269287, step: 24500, tokens_seen_global: 2408448000, tokens_per_sec_global: 320921.3673190866, max_mem_mb: 59270.316544
+[log] train loss: 4.824920654296875, step: 25000, tokens_seen_global: 2457600000, tokens_per_sec_global: 320931.3120492418, max_mem_mb: 59270.316544
+[log] train loss: 4.833880424499512, step: 25500, tokens_seen_global: 2506752000, tokens_per_sec_global: 320935.3982339503, max_mem_mb: 59270.316544
+[log] train loss: 4.895155906677246, step: 26000, tokens_seen_global: 2555904000, tokens_per_sec_global: 320936.2765645683, max_mem_mb: 59270.316544
+[log] train loss: 4.886547088623047, step: 26500, tokens_seen_global: 2605056000, tokens_per_sec_global: 320935.9883879735, max_mem_mb: 59270.316544
+[log] train loss: 4.837353706359863, step: 27000, tokens_seen_global: 2654208000, tokens_per_sec_global: 320943.6718281501, max_mem_mb: 59270.316544
+[log] train loss: 4.940301418304443, step: 27500, tokens_seen_global: 2703360000, tokens_per_sec_global: 320947.31377839, max_mem_mb: 59270.316544
+[log] train loss: 4.846323490142822, step: 28000, tokens_seen_global: 2752512000, tokens_per_sec_global: 320952.7094632852, max_mem_mb: 59270.316544
+[log] train loss: 4.879363536834717, step: 28500, tokens_seen_global: 2801664000, tokens_per_sec_global: 320953.6700147001, max_mem_mb: 59270.316544
+[log] train loss: 4.678161144256592, step: 29000, tokens_seen_global: 2850816000, tokens_per_sec_global: 320960.6397927613, max_mem_mb: 59270.316544
+[log] train loss: 4.765374660491943, step: 29500, tokens_seen_global: 2899968000, tokens_per_sec_global: 320964.34922434937, max_mem_mb: 59270.316544
+[log] train loss: 4.840273857116699, step: 30000, tokens_seen_global: 2949120000, tokens_per_sec_global: 320968.9509964347, max_mem_mb: 59270.316544
+[log] train loss: 4.6354804039001465, step: 30500, tokens_seen_global: 2998272000, tokens_per_sec_global: 320972.12700070185, max_mem_mb: 59270.316544
+[log] train loss: 4.79574728012085, step: 31000, tokens_seen_global: 3047424000, tokens_per_sec_global: 320980.80330723326, max_mem_mb: 59270.316544
+[log] train loss: 4.812170028686523, step: 31500, tokens_seen_global: 3096576000, tokens_per_sec_global: 320984.7886340099, max_mem_mb: 59270.316544
+[log] train loss: 4.504745006561279, step: 32000, tokens_seen_global: 3145728000, tokens_per_sec_global: 320990.1082120751, max_mem_mb: 59270.316544
+[log] train loss: 4.644533634185791, step: 32500, tokens_seen_global: 3194880000, tokens_per_sec_global: 320991.9713467206, max_mem_mb: 59270.316544
+[log] train loss: 4.7114081382751465, step: 33000, tokens_seen_global: 3244032000, tokens_per_sec_global: 320997.47582877247, max_mem_mb: 59270.316544
+[log] train loss: 4.768622398376465, step: 33500, tokens_seen_global: 3293184000, tokens_per_sec_global: 320999.8377508682, max_mem_mb: 59270.316544
+[log] train loss: 4.695425987243652, step: 34000, tokens_seen_global: 3342336000, tokens_per_sec_global: 321003.58620180836, max_mem_mb: 59270.316544
+[log] train loss: 4.800246238708496, step: 34500, tokens_seen_global: 3391488000, tokens_per_sec_global: 321004.9110886649, max_mem_mb: 59270.316544
+[log] train loss: 4.7070536613464355, step: 35000, tokens_seen_global: 3440640000, tokens_per_sec_global: 321009.0036959144, max_mem_mb: 59270.316544
+[log] train loss: 4.889598369598389, step: 35500, tokens_seen_global: 3489792000, tokens_per_sec_global: 321009.6508158681, max_mem_mb: 59270.316544
+[log] train loss: 4.766142845153809, step: 36000, tokens_seen_global: 3538944000, tokens_per_sec_global: 321012.4435982698, max_mem_mb: 59270.316544
+[log] train loss: 4.958170413970947, step: 36500, tokens_seen_global: 3588096000, tokens_per_sec_global: 321011.59532107384, max_mem_mb: 59270.316544
+[log] train loss: 4.967565536499023, step: 37000, tokens_seen_global: 3637248000, tokens_per_sec_global: 321017.2735566111, max_mem_mb: 59270.316544
+[log] train loss: 4.782363414764404, step: 37500, tokens_seen_global: 3686400000, tokens_per_sec_global: 321018.8386807432, max_mem_mb: 59270.316544
+[log] train loss: 4.883221626281738, step: 38000, tokens_seen_global: 3735552000, tokens_per_sec_global: 321023.3898562813, max_mem_mb: 59270.316544
+[log] train loss: 4.84572172164917, step: 38500, tokens_seen_global: 3784704000, tokens_per_sec_global: 321016.01246370916, max_mem_mb: 59270.316544
+[log] train loss: 4.768594741821289, step: 39000, tokens_seen_global: 3833856000, tokens_per_sec_global: 321022.10409553075, max_mem_mb: 59270.316544
+[log] train loss: 4.701941967010498, step: 39500, tokens_seen_global: 3883008000, tokens_per_sec_global: 321025.0820922035, max_mem_mb: 59270.316544
+[log] train loss: 4.844343185424805, step: 40000, tokens_seen_global: 3932160000, tokens_per_sec_global: 321027.53984286985, max_mem_mb: 59270.316544
+[log] train loss: 4.866464138031006, step: 40500, tokens_seen_global: 3981312000, tokens_per_sec_global: 321029.1820299411, max_mem_mb: 59270.316544
+[log] train loss: 4.798064231872559, step: 41000, tokens_seen_global: 4030464000, tokens_per_sec_global: 321035.3149204915, max_mem_mb: 59270.316544
+[log] train loss: 4.814290523529053, step: 41500, tokens_seen_global: 4079616000, tokens_per_sec_global: 321036.41836676304, max_mem_mb: 59270.316544
+[log] train loss: 4.906308174133301, step: 42000, tokens_seen_global: 4128768000, tokens_per_sec_global: 321040.66889377777, max_mem_mb: 59270.316544
+[log] train loss: 4.819671630859375, step: 42500, tokens_seen_global: 4177920000, tokens_per_sec_global: 321041.1341497572, max_mem_mb: 59270.316544
+[log] train loss: 4.860647678375244, step: 43000, tokens_seen_global: 4227072000, tokens_per_sec_global: 321045.59813698806, max_mem_mb: 59270.316544
+[log] train loss: 4.748169422149658, step: 43500, tokens_seen_global: 4276224000, tokens_per_sec_global: 321047.83913182624, max_mem_mb: 59270.316544
+[log] train loss: 4.621291637420654, step: 44000, tokens_seen_global: 4325376000, tokens_per_sec_global: 321052.31261211634, max_mem_mb: 59270.316544
+[log] train loss: 4.784238815307617, step: 44500, tokens_seen_global: 4374528000, tokens_per_sec_global: 321052.0253464146, max_mem_mb: 59270.316544
+[log] train loss: 4.651219844818115, step: 45000, tokens_seen_global: 4423680000, tokens_per_sec_global: 321057.218970861, max_mem_mb: 59270.316544
+[log] train loss: 4.74420166015625, step: 45500, tokens_seen_global: 4472832000, tokens_per_sec_global: 321058.3795702672, max_mem_mb: 59270.316544
+[log] train loss: 4.784571170806885, step: 46000, tokens_seen_global: 4521984000, tokens_per_sec_global: 321061.8279857074, max_mem_mb: 59270.316544
+[log] train loss: 4.740692615509033, step: 46500, tokens_seen_global: 4571136000, tokens_per_sec_global: 321061.81135819, max_mem_mb: 59270.316544
+[log] train loss: 4.710269927978516, step: 47000, tokens_seen_global: 4620288000, tokens_per_sec_global: 321066.82462282944, max_mem_mb: 59270.316544
+[log] train loss: 4.767377853393555, step: 47500, tokens_seen_global: 4669440000, tokens_per_sec_global: 321068.8001793604, max_mem_mb: 59270.316544
+[log] train loss: 4.717813014984131, step: 48000, tokens_seen_global: 4718592000, tokens_per_sec_global: 321070.2954990294, max_mem_mb: 59270.316544
+[log] train loss: 4.49465799331665, step: 48500, tokens_seen_global: 4767744000, tokens_per_sec_global: 321070.5063431637, max_mem_mb: 59270.316544
+[log] train loss: 4.751023769378662, step: 49000, tokens_seen_global: 4816896000, tokens_per_sec_global: 321074.1220819931, max_mem_mb: 59270.316544
+[log] train loss: 4.745152950286865, step: 49500, tokens_seen_global: 4866048000, tokens_per_sec_global: 321072.9371979265, max_mem_mb: 59270.316544
+[log] train loss: 4.777618885040283, step: 50000, tokens_seen_global: 4915200000, tokens_per_sec_global: 321074.59286479064, max_mem_mb: 59270.316544
+[log] train loss: 4.581595420837402, step: 50500, tokens_seen_global: 4964352000, tokens_per_sec_global: 321073.6260687602, max_mem_mb: 59270.316544
+[log] train loss: 4.777750492095947, step: 51000, tokens_seen_global: 5013504000, tokens_per_sec_global: 321076.502854011, max_mem_mb: 59270.316544
+[log] train loss: 4.885440349578857, step: 51500, tokens_seen_global: 5062656000, tokens_per_sec_global: 321076.9495346666, max_mem_mb: 59270.316544
+[log] train loss: 4.6575398445129395, step: 52000, tokens_seen_global: 5111808000, tokens_per_sec_global: 321079.5376398187, max_mem_mb: 59270.316544
+[log] train loss: 4.782200336456299, step: 52500, tokens_seen_global: 5160960000, tokens_per_sec_global: 321079.66143378196, max_mem_mb: 59270.316544
+[log] train loss: 4.820370674133301, step: 53000, tokens_seen_global: 5210112000, tokens_per_sec_global: 321078.9868502068, max_mem_mb: 59270.316544
+[log] train loss: 4.8772430419921875, step: 53500, tokens_seen_global: 5259264000, tokens_per_sec_global: 321079.88565294567, max_mem_mb: 59270.316544
+[log] train loss: 4.63433837890625, step: 54000, tokens_seen_global: 5308416000, tokens_per_sec_global: 321081.75493587344, max_mem_mb: 59270.316544
+[log] train loss: 4.961021423339844, step: 54500, tokens_seen_global: 5357568000, tokens_per_sec_global: 321081.6089362339, max_mem_mb: 59270.316544
+[log] train loss: 4.775810241699219, step: 55000, tokens_seen_global: 5406720000, tokens_per_sec_global: 321085.02289875643, max_mem_mb: 59270.316544
+[log] train loss: 4.623146057128906, step: 55500, tokens_seen_global: 5455872000, tokens_per_sec_global: 321084.89554757794, max_mem_mb: 59270.316544
+[log] train loss: 4.872216701507568, step: 56000, tokens_seen_global: 5505024000, tokens_per_sec_global: 321086.05721387337, max_mem_mb: 59270.316544
+[log] train loss: 4.605711936950684, step: 56500, tokens_seen_global: 5554176000, tokens_per_sec_global: 321084.23502577643, max_mem_mb: 59270.316544
+[log] train loss: 4.685102939605713, step: 57000, tokens_seen_global: 5603328000, tokens_per_sec_global: 321086.5828562081, max_mem_mb: 59270.316544
+[log] train loss: 4.807106971740723, step: 57500, tokens_seen_global: 5652480000, tokens_per_sec_global: 321086.03939210094, max_mem_mb: 59270.316544
+[log] train loss: 4.704209327697754, step: 58000, tokens_seen_global: 5701632000, tokens_per_sec_global: 321088.69445977884, max_mem_mb: 59270.316544
+[log] train loss: 4.4519171714782715, step: 58500, tokens_seen_global: 5750784000, tokens_per_sec_global: 321087.7121331955, max_mem_mb: 59270.316544
+[log] train loss: 4.512567520141602, step: 59000, tokens_seen_global: 5799936000, tokens_per_sec_global: 321089.1902806987, max_mem_mb: 59270.316544
+[log] train loss: 4.587584018707275, step: 59500, tokens_seen_global: 5849088000, tokens_per_sec_global: 321088.5785267355, max_mem_mb: 59270.316544
+[log] train loss: 4.474218368530273, step: 60000, tokens_seen_global: 5898240000, tokens_per_sec_global: 321091.0752791724, max_mem_mb: 59270.316544
+[log] train loss: 4.526307582855225, step: 60500, tokens_seen_global: 5947392000, tokens_per_sec_global: 321091.4592886116, max_mem_mb: 59270.316544
+[log] train loss: 4.61320686340332, step: 61000, tokens_seen_global: 5996544000, tokens_per_sec_global: 321094.43974542274, max_mem_mb: 59270.316544
+[log] train loss: 4.683231830596924, step: 61500, tokens_seen_global: 6045696000, tokens_per_sec_global: 321094.00929208886, max_mem_mb: 59270.316544
+[log] train loss: 4.58164644241333, step: 62000, tokens_seen_global: 6094848000, tokens_per_sec_global: 321095.8560102545, max_mem_mb: 59270.316544
+[log] train loss: 4.530136585235596, step: 62500, tokens_seen_global: 6144000000, tokens_per_sec_global: 321095.3530630886, max_mem_mb: 59270.316544
+[log] train loss: 4.690982341766357, step: 63000, tokens_seen_global: 6193152000, tokens_per_sec_global: 321097.94734215405, max_mem_mb: 59270.316544
+[log] train loss: 4.7113847732543945, step: 63500, tokens_seen_global: 6242304000, tokens_per_sec_global: 321097.37863924477, max_mem_mb: 59270.316544
+[log] train loss: 4.524847030639648, step: 64000, tokens_seen_global: 6291456000, tokens_per_sec_global: 321099.6886572467, max_mem_mb: 59270.316544
+[log] train loss: 4.630984783172607, step: 64500, tokens_seen_global: 6340608000, tokens_per_sec_global: 321099.27953991044, max_mem_mb: 59270.316544
+[log] train loss: 4.463409423828125, step: 65000, tokens_seen_global: 6389760000, tokens_per_sec_global: 321100.4693698488, max_mem_mb: 59270.316544
+[log] train loss: 4.558279037475586, step: 65500, tokens_seen_global: 6438912000, tokens_per_sec_global: 321099.88196908485, max_mem_mb: 59270.316544
+[log] train loss: 4.713412284851074, step: 66000, tokens_seen_global: 6488064000, tokens_per_sec_global: 321101.19573075394, max_mem_mb: 59270.316544
+[log] train loss: 4.614903926849365, step: 66500, tokens_seen_global: 6537216000, tokens_per_sec_global: 321099.7239029105, max_mem_mb: 59270.316544
+[log] train loss: 4.411681652069092, step: 67000, tokens_seen_global: 6586368000, tokens_per_sec_global: 321103.1303872738, max_mem_mb: 59270.316544
+[log] train loss: 4.776991367340088, step: 67500, tokens_seen_global: 6635520000, tokens_per_sec_global: 321102.307985767, max_mem_mb: 59270.316544
+[log] train loss: 4.611178874969482, step: 68000, tokens_seen_global: 6684672000, tokens_per_sec_global: 321103.06517719146, max_mem_mb: 59270.316544
+[log] train loss: 4.376228332519531, step: 68500, tokens_seen_global: 6733824000, tokens_per_sec_global: 321102.4466629022, max_mem_mb: 59270.316544
+[log] train loss: 4.638329982757568, step: 69000, tokens_seen_global: 6782976000, tokens_per_sec_global: 321104.18974496407, max_mem_mb: 59270.316544
+[log] train loss: 4.613491058349609, step: 69500, tokens_seen_global: 6832128000, tokens_per_sec_global: 321103.7458818133, max_mem_mb: 59270.316544
+[log] train loss: 4.535769462585449, step: 70000, tokens_seen_global: 6881280000, tokens_per_sec_global: 321104.7056514862, max_mem_mb: 59270.316544
+[log] train loss: 4.523036956787109, step: 70500, tokens_seen_global: 6930432000, tokens_per_sec_global: 321105.5705591997, max_mem_mb: 59270.316544
+[log] train loss: 4.488978862762451, step: 71000, tokens_seen_global: 6979584000, tokens_per_sec_global: 321106.92739194905, max_mem_mb: 59270.316544
+[log] train loss: 4.505084991455078, step: 71500, tokens_seen_global: 7028736000, tokens_per_sec_global: 321106.5667700701, max_mem_mb: 59270.316544
+[log] train loss: 4.520265102386475, step: 72000, tokens_seen_global: 7077888000, tokens_per_sec_global: 321107.5264065875, max_mem_mb: 59270.316544
+[log] train loss: 4.618756294250488, step: 72500, tokens_seen_global: 7127040000, tokens_per_sec_global: 321106.82095171796, max_mem_mb: 59270.316544
+[log] train loss: 4.511372089385986, step: 73000, tokens_seen_global: 7176192000, tokens_per_sec_global: 321108.86035072134, max_mem_mb: 59270.316544
+[log] train loss: 4.571388244628906, step: 73500, tokens_seen_global: 7225344000, tokens_per_sec_global: 321107.67494227935, max_mem_mb: 59270.316544
+[log] train loss: 4.6071906089782715, step: 74000, tokens_seen_global: 7274496000, tokens_per_sec_global: 321108.782182977, max_mem_mb: 59270.316544
+[log] train loss: 4.765891075134277, step: 74500, tokens_seen_global: 7323648000, tokens_per_sec_global: 321108.5685135829, max_mem_mb: 59270.316544
+[log] train loss: 4.598228931427002, step: 75000, tokens_seen_global: 7372800000, tokens_per_sec_global: 321109.5973152221, max_mem_mb: 59270.316544
+[log] train loss: 4.587698459625244, step: 75500, tokens_seen_global: 7421952000, tokens_per_sec_global: 321108.93906906963, max_mem_mb: 59270.316544
+[log] train loss: 4.522568702697754, step: 76000, tokens_seen_global: 7471104000, tokens_per_sec_global: 321109.552503577, max_mem_mb: 59270.316544
+[log] train loss: 4.640295505523682, step: 76500, tokens_seen_global: 7520256000, tokens_per_sec_global: 321109.008461931, max_mem_mb: 59270.316544
+[log] train loss: 4.702922344207764, step: 77000, tokens_seen_global: 7569408000, tokens_per_sec_global: 321111.0997941333, max_mem_mb: 59270.316544
+[log] train loss: 4.524555683135986, step: 77500, tokens_seen_global: 7618560000, tokens_per_sec_global: 321111.45861382136, max_mem_mb: 59270.316544
+[log] train loss: 4.560003757476807, step: 78000, tokens_seen_global: 7667712000, tokens_per_sec_global: 321113.1528593796, max_mem_mb: 59270.316544
+[log] train loss: 4.558619976043701, step: 78500, tokens_seen_global: 7716864000, tokens_per_sec_global: 321112.8418496244, max_mem_mb: 59270.316544
+[log] train loss: 4.354156017303467, step: 79000, tokens_seen_global: 7766016000, tokens_per_sec_global: 321114.0921914598, max_mem_mb: 59270.316544
+[log] train loss: 4.493385314941406, step: 79500, tokens_seen_global: 7815168000, tokens_per_sec_global: 321113.8143722169, max_mem_mb: 59270.316544
+[log] train loss: 4.816549301147461, step: 80000, tokens_seen_global: 7864320000, tokens_per_sec_global: 321115.57000633347, max_mem_mb: 59270.316544
+[log] train loss: 4.470978736877441, step: 80500, tokens_seen_global: 7913472000, tokens_per_sec_global: 321114.5124444394, max_mem_mb: 59270.316544
+[log] train loss: 4.440455436706543, step: 81000, tokens_seen_global: 7962624000, tokens_per_sec_global: 321115.4171957733, max_mem_mb: 59270.316544
+[log] train loss: 4.752565860748291, step: 81500, tokens_seen_global: 8011776000, tokens_per_sec_global: 321115.09028577973, max_mem_mb: 59270.316544
+[log] train loss: 4.5200581550598145, step: 82000, tokens_seen_global: 8060928000, tokens_per_sec_global: 321116.5084777477, max_mem_mb: 59270.316544
+[log] train loss: 4.630541801452637, step: 82500, tokens_seen_global: 8110080000, tokens_per_sec_global: 321115.7025226264, max_mem_mb: 59270.316544
+[log] train loss: 4.67808723449707, step: 83000, tokens_seen_global: 8159232000, tokens_per_sec_global: 321117.51797797723, max_mem_mb: 59270.316544
+[log] train loss: 4.450195789337158, step: 83500, tokens_seen_global: 8208384000, tokens_per_sec_global: 321118.18823122606, max_mem_mb: 59270.316544
+[log] train loss: 4.419926166534424, step: 84000, tokens_seen_global: 8257536000, tokens_per_sec_global: 321120.44206825795, max_mem_mb: 59270.316544
+[log] train loss: 4.744089126586914, step: 84500, tokens_seen_global: 8306688000, tokens_per_sec_global: 321119.72373592, max_mem_mb: 59270.316544
+[log] train loss: 4.605132579803467, step: 85000, tokens_seen_global: 8355840000, tokens_per_sec_global: 321120.7700562321, max_mem_mb: 59270.316544
+[log] train loss: 4.443633079528809, step: 85500, tokens_seen_global: 8404992000, tokens_per_sec_global: 321120.7085167398, max_mem_mb: 59270.316544
+[log] train loss: 4.574748992919922, step: 86000, tokens_seen_global: 8454144000, tokens_per_sec_global: 321122.07906679565, max_mem_mb: 59270.316544
+[log] train loss: 4.566850185394287, step: 86500, tokens_seen_global: 8503296000, tokens_per_sec_global: 321121.95786790585, max_mem_mb: 59270.316544
+[log] train loss: 4.52205228805542, step: 87000, tokens_seen_global: 8552448000, tokens_per_sec_global: 321124.0193632091, max_mem_mb: 59270.316544
+[log] train loss: 4.5121541023254395, step: 87500, tokens_seen_global: 8601600000, tokens_per_sec_global: 321123.77284280147, max_mem_mb: 59270.316544
+[log] train loss: 4.665374755859375, step: 88000, tokens_seen_global: 8650752000, tokens_per_sec_global: 321125.1434348341, max_mem_mb: 59270.316544
+[log] train loss: 4.62517786026001, step: 88500, tokens_seen_global: 8699904000, tokens_per_sec_global: 321124.7051382791, max_mem_mb: 59270.316544
+[log] train loss: 4.595000267028809, step: 89000, tokens_seen_global: 8749056000, tokens_per_sec_global: 321126.82849868975, max_mem_mb: 59270.316544
+[log] train loss: 4.557922840118408, step: 89500, tokens_seen_global: 8798208000, tokens_per_sec_global: 321126.7833358638, max_mem_mb: 59270.316544
+[log] train loss: 4.6085638999938965, step: 90000, tokens_seen_global: 8847360000, tokens_per_sec_global: 321127.590450339, max_mem_mb: 59270.316544
+[log] train loss: 4.519260883331299, step: 90500, tokens_seen_global: 8896512000, tokens_per_sec_global: 321127.50670276664, max_mem_mb: 59270.316544
+[log] train loss: 4.735931873321533, step: 91000, tokens_seen_global: 8945664000, tokens_per_sec_global: 321128.3995410802, max_mem_mb: 59270.316544
+[log] train loss: 4.649540901184082, step: 91500, tokens_seen_global: 8994816000, tokens_per_sec_global: 321129.34580694756, max_mem_mb: 59270.316544
+[log] train loss: 4.801419258117676, step: 92000, tokens_seen_global: 9043968000, tokens_per_sec_global: 321130.2881325528, max_mem_mb: 59270.316544
+[log] train loss: 4.579943656921387, step: 92500, tokens_seen_global: 9093120000, tokens_per_sec_global: 321130.2029739386, max_mem_mb: 59270.316544
+[log] train loss: 4.596525192260742, step: 93000, tokens_seen_global: 9142272000, tokens_per_sec_global: 321131.77153878286, max_mem_mb: 59270.316544
+[log] train loss: 4.584244251251221, step: 93500, tokens_seen_global: 9191424000, tokens_per_sec_global: 321132.32637413614, max_mem_mb: 59270.316544
+[log] train loss: 4.596957206726074, step: 94000, tokens_seen_global: 9240576000, tokens_per_sec_global: 321133.7469700537, max_mem_mb: 59270.316544
+[log] train loss: 4.538717746734619, step: 94500, tokens_seen_global: 9289728000, tokens_per_sec_global: 321134.15915750555, max_mem_mb: 59270.316544
+[log] train loss: 4.413198471069336, step: 95000, tokens_seen_global: 9338880000, tokens_per_sec_global: 321136.0992358177, max_mem_mb: 59270.316544
+[log] train loss: 4.348971366882324, step: 95500, tokens_seen_global: 9388032000, tokens_per_sec_global: 321136.5064889602, max_mem_mb: 59270.316544
+[log] train loss: 4.479611873626709, step: 96000, tokens_seen_global: 9437184000, tokens_per_sec_global: 321137.51646642765, max_mem_mb: 59270.316544
+[log] train loss: 4.369895935058594, step: 96500, tokens_seen_global: 9486336000, tokens_per_sec_global: 321137.7009038308, max_mem_mb: 59270.316544
+[log] train loss: 4.733940601348877, step: 97000, tokens_seen_global: 9535488000, tokens_per_sec_global: 321139.2903311738, max_mem_mb: 59270.316544
+[log] train loss: 4.6161088943481445, step: 97500, tokens_seen_global: 9584640000, tokens_per_sec_global: 321138.8538027014, max_mem_mb: 59270.316544
+[log] train loss: 4.3194074630737305, step: 98000, tokens_seen_global: 9633792000, tokens_per_sec_global: 321140.77085011784, max_mem_mb: 59270.316544
+[log] train loss: 4.641998291015625, step: 98500, tokens_seen_global: 9682944000, tokens_per_sec_global: 321141.0789674192, max_mem_mb: 59270.316544
+[log] train loss: 4.8209614753723145, step: 99000, tokens_seen_global: 9732096000, tokens_per_sec_global: 321142.47855744837, max_mem_mb: 59270.316544
+[log] train loss: 4.473665714263916, step: 99500, tokens_seen_global: 9781248000, tokens_per_sec_global: 321143.0918553628, max_mem_mb: 59270.316544
+[log] train loss: 4.679581165313721, step: 100000, tokens_seen_global: 9830400000, tokens_per_sec_global: 321144.18445779395, max_mem_mb: 59270.316544
+[log] train loss: 4.551590442657471, step: 100500, tokens_seen_global: 9879552000, tokens_per_sec_global: 321143.88530530926, max_mem_mb: 59270.316544
+[log] train loss: 4.613478660583496, step: 101000, tokens_seen_global: 9928704000, tokens_per_sec_global: 321144.9665056074, max_mem_mb: 59270.316544
+[log] train loss: 4.799619197845459, step: 101500, tokens_seen_global: 9977856000, tokens_per_sec_global: 321041.1902205107, max_mem_mb: 59270.316544
+HF upload skipped (token absent or repo not specified).
+▶️ babylm テストセットで mean-so-far-PPL を最大 4096 トークンまで計測します…
+Computing mean-so-far PPL:   0%|          | 0/100 [00:00<?, ?it/s]Computing mean-so-far PPL:   1%|          | 1/100 [00:00<00:12,  8.16it/s]Computing mean-so-far PPL:   3%|▎         | 3/100 [00:00<00:10,  9.68it/s]Computing mean-so-far PPL:   5%|▌         | 5/100 [00:00<00:09, 10.04it/s]Computing mean-so-far PPL:   7%|▋         | 7/100 [00:00<00:09, 10.18it/s]Computing mean-so-far PPL:   9%|▉         | 9/100 [00:00<00:08, 10.32it/s]Computing mean-so-far PPL:  11%|█         | 11/100 [00:01<00:08, 10.33it/s]Computing mean-so-far PPL:  13%|█▎        | 13/100 [00:01<00:08, 10.43it/s]Computing mean-so-far PPL:  15%|█▌        | 15/100 [00:01<00:08, 10.59it/s]Computing mean-so-far PPL:  17%|█▋        | 17/100 [00:01<00:07, 10.59it/s]Computing mean-so-far PPL:  19%|█▉        | 19/100 [00:01<00:07, 10.68it/s]Computing mean-so-far PPL:  21%|██        | 21/100 [00:02<00:07, 10.74it/s]Computing mean-so-far PPL:  23%|██▎       | 23/100 [00:02<00:07, 10.81it/s]Computing mean-so-far PPL:  25%|██▌       | 25/100 [00:02<00:06, 10.82it/s]Computing mean-so-far PPL:  27%|██▋       | 27/100 [00:02<00:06, 10.78it/s]Computing mean-so-far PPL:  29%|██▉       | 29/100 [00:02<00:06, 10.81it/s]Computing mean-so-far PPL:  31%|███       | 31/100 [00:02<00:06, 10.76it/s]Computing mean-so-far PPL:  33%|███▎      | 33/100 [00:03<00:06, 10.76it/s]Computing mean-so-far PPL:  35%|███▌      | 35/100 [00:03<00:06, 10.76it/s]Computing mean-so-far PPL:  37%|███▋      | 37/100 [00:03<00:05, 10.72it/s]Computing mean-so-far PPL:  39%|███▉      | 39/100 [00:03<00:05, 10.67it/s]Computing mean-so-far PPL:  41%|████      | 41/100 [00:03<00:05, 10.48it/s]Computing mean-so-far PPL:  43%|████▎     | 43/100 [00:04<00:05, 10.54it/s]Computing mean-so-far PPL:  45%|████▌     | 45/100 [00:04<00:05, 10.50it/s]Computing mean-so-far PPL:  47%|████▋     | 47/100 [00:04<00:05, 10.58it/s]Computing mean-so-far PPL:  49%|████▉     | 49/100 [00:04<00:04, 10.61it/s]Computing mean-so-far PPL:  51%|█████     | 51/100 [00:04<00:04, 10.68it/s]Computing mean-so-far PPL:  53%|█████▎    | 53/100 [00:05<00:04, 10.60it/s]Computing mean-so-far PPL:  55%|█████▌    | 55/100 [00:05<00:04, 10.48it/s]Computing mean-so-far PPL:  57%|█████▋    | 57/100 [00:05<00:04, 10.55it/s]Computing mean-so-far PPL:  59%|█████▉    | 59/100 [00:05<00:03, 10.63it/s]Computing mean-so-far PPL:  61%|██████    | 61/100 [00:05<00:03, 10.73it/s]Computing mean-so-far PPL:  63%|██████▎   | 63/100 [00:05<00:03, 10.77it/s]Computing mean-so-far PPL:  65%|██████▌   | 65/100 [00:06<00:03, 10.82it/s]Computing mean-so-far PPL:  67%|██████▋   | 67/100 [00:06<00:03, 10.71it/s]Computing mean-so-far PPL:  69%|██████▉   | 69/100 [00:06<00:02, 10.73it/s]Computing mean-so-far PPL:  71%|███████   | 71/100 [00:06<00:02, 10.75it/s]Computing mean-so-far PPL:  73%|███████▎  | 73/100 [00:06<00:02, 10.70it/s]Computing mean-so-far PPL:  75%|███████▌  | 75/100 [00:07<00:02, 10.71it/s]Computing mean-so-far PPL:  77%|███████▋  | 77/100 [00:07<00:02, 10.76it/s]Computing mean-so-far PPL:  79%|███████▉  | 79/100 [00:07<00:01, 10.67it/s]Computing mean-so-far PPL:  81%|████████  | 81/100 [00:07<00:01, 10.69it/s]Computing mean-so-far PPL:  83%|████████▎ | 83/100 [00:07<00:01, 10.65it/s]Computing mean-so-far PPL:  85%|████████▌ | 85/100 [00:08<00:01, 10.64it/s]Computing mean-so-far PPL:  87%|████████▋ | 87/100 [00:08<00:01, 10.66it/s]Computing mean-so-far PPL:  89%|████████▉ | 89/100 [00:08<00:01, 10.64it/s]Computing mean-so-far PPL:  91%|█████████ | 91/100 [00:08<00:00, 10.74it/s]Computing mean-so-far PPL:  93%|█████████▎| 93/100 [00:08<00:00, 10.74it/s]Computing mean-so-far PPL:  95%|█████████▌| 95/100 [00:08<00:00, 10.67it/s]Computing mean-so-far PPL:  97%|█████████▋| 97/100 [00:09<00:00, 10.70it/s]Computing mean-so-far PPL:  99%|█████████▉| 99/100 [00:09<00:00, 10.68it/s]Computing mean-so-far PPL: 100%|██████████| 100/100 [00:09<00:00, 10.63it/s]
+wandb: updating run metadata; uploading artifact run-2v1vctbj-mean_so_far_ppl_curve_table; uploading media/table/mean_so_far_ppl_curve_table_101727_4a67c08572b6a96a28c9.table.json
+wandb: uploading artifact run-2v1vctbj-mean_so_far_ppl_curve_table; uploading output.log; uploading config.yaml
+wandb: uploading artifact run-2v1vctbj-mean_so_far_ppl_curve_table; uploading history steps 101725-101726, summary, console lines 206-208
+wandb: uploading data
+wandb: 
+wandb: Run history:
+wandb:            current_lr ▂▂▂▂▄▆▇████████▇▇▇▇▇▆▆▆▆▆▅▄▄▄▃▃▃▃▂▂▂▁▁▁▁
+wandb:      inference_mem_MB ▁
+wandb:        inference_time ▁
+wandb: inference_tok_per_sec ▁
+wandb:            max_mem_mb ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             max_steps ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          seenedtokens ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▅▅▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇██
+wandb:   seenedtokens_global ▁▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▄▄▅▅▅▅▅▅▇▇▇▇▇▇▇███
+wandb:                  step ▁▁▁▁▂▂▂▂▂▂▂▂▃▃▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▆▆▆▆▆▇▇▇▇██
+wandb:        tokens_per_sec ▁▂▃▄▅▅▆▆▆▆▇▇▇▇▇▇████████████████████████
+wandb:                    +5 ...
+wandb: 
+wandb: Run summary:
+wandb:            current_lr 0
+wandb:      inference_mem_MB 8664.44646
+wandb:        inference_time 9.41792
+wandb: inference_tok_per_sec 43491.57362
+wandb:            max_mem_mb 59270.31654
+wandb:             max_steps 101726
+wandb:          seenedtokens 10000072704
+wandb:   seenedtokens_global 10000072704
+wandb:                  step 101726
+wandb:        tokens_per_sec 321041.57506
+wandb:                    +5 ...
+wandb: 
+wandb: 🚀 View run NGRC_LM(113.51M_10BT_d2048_poly3_bs198)1 at: https://wandb.ai/telutelu/NGRC_LanguageModel/runs/2v1vctbj
+wandb: ⭐️ View project at: https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: Synced 5 W&B file(s), 102 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251221_234048-2v1vctbj/logs
+Inference time: 9.42s, Tokens/sec: 43491.57, Memory: 8664.45MB
+📄 Training report written to ./reports_ngrc/NGRC_LM(113.51M_10BT_d2048_poly3_bs198)1_report.txt
+Repo card metadata block was not found. Setting CardData to empty.
+wandb: Currently logged in as: shimomura-teruki174 (telutelu) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ubfxys40
+wandb: Tracking run with wandb version 0.23.1
+wandb: Run data is saved locally in /work/gp36/b20072/NGRC_LM/src/wandb/run-20251222_082131-ubfxys40
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run NGRC_LM(113.51M_10BT_d2048_poly3_bs198)2
+wandb: ⭐️ View project at https://wandb.ai/telutelu/NGRC_LanguageModel
+wandb: 🚀 View run at https://wandb.ai/telutelu/NGRC_LanguageModel/runs/ubfxys40
+Namespace(local_rank=0, deepspeed_config='ds_config.json', use_deepspeed=False, local_batch_size=192, use_gpu_amount=1, learning_rate=0.0005, validate_every_steps=200, save_checkpoint_every_steps=200, generate_every=1000, seq_len=512, total_tokens=10000000000.0, epochs=1, grad_clip_norm=0.0, beta1=0.9, beta2=0.95, weight_decay=0.1, tokenizer_path='meta-llama/Llama-2-7b-hf', ngrc_d_model=2048, ngrc_lag=10, ngrc_poly_degree=3, ngrc_max_cross_terms=256, ngrc_readout_rank=512, ngrc_embed_frozen=False, ngrc_training='sgd', ngrc_loss='ce', ngrc_ridge_alpha=0.001, ngrc_ridge_max_batches=200, dataset_path='HuggingFaceFW/fineweb-edu', val_dataset_path='vesteinn/babylm', wandb_project='NGRC_LanguageModel', wandb_run_name='NGRC_LM(113.51M_10BT_d2048_poly3_bs198)2', api_file='api.txt', log_grad=False, hf_repo=None, hf_private=True, enable_compile=False)
+NGRC_LM initialized: vocab=32000, d_model=2048, lag=10, poly_degree=3, phi_dim=61697, readout_rank=512, embed_trainable=True, loss_type=ce
+parameter count: 113.51M
+[data] HF streaming dataset HuggingFaceFW/fineweb-edu
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
