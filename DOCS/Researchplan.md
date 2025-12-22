@@ -37,6 +37,7 @@
 - [ ] 技術的な課題
     - [ ] Multi node 学習 (tensor並列が遅くなるため，pipeline並列にする必要がある)
     - [ ] ハードウェア（HBM, L1/L2メモリを意識した高速化）
+    [compute intensity](./images/computeintensity.png)
 
 - [ ] これまでの知見 
     - [ ] 50M 前後の実験では多層のGPTにNGRCのperplexityが匹敵
