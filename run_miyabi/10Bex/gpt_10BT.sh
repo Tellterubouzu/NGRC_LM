@@ -7,7 +7,7 @@
 #PBS -j oe
 #PBS -m abe
 #PBS -M shimomura.teruki174@mail.kyutech.jp
-#PBS -N ngrc_special_token
+#PBS -N gpt_10BT
 
 #set -x  # 実行トレース
 #echo "Shell flags: $-"
@@ -24,7 +24,4 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate esn
 
 cd ../../src
-python ngrc_lm_low_rank.py --local_batch_size 150 --learning_rate 5e-4 --seq_len 256 --ngrc_d_model 2048 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
-
-python ngrc_lm_low_rank.py --local_batch_size 110 --learning_rate 5e-4 --seq_len 512 --ngrc_d_model 2048 --ngrc_lag 10 --ngrc_poly_degree 3 --log_grad
-
+python gpt_128M.py  --n_layer 13 --n_head 8 --local_batch_size 110 --learning_rate 5e-4 --seq_len 512 --wandb_run_name "GPT(RoPE)116.72M_10BToken_size110_seq_len512)1"  --total_tokens 10e9

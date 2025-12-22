@@ -1,4 +1,0 @@
-  File "/work/gp36/b20072/NGRC_LM/src/gpt_128M.py", line 93
-    for j in range(0, len(toks) - self.seq_len + 1, self.seq_len)
-                                                                 ^
-SyntaxError: expected ':'

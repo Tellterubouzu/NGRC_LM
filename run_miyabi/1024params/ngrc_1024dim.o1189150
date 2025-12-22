@@ -1,0 +1,24 @@
+/work/gp36/b20072/.bashrc: line 7: /work/gp36/b20072/.cargo/env: No such file or directory
+/work/gp36/b20072/.bashrc: line 10: rbenv: command not found
+/work/gp36/b20072/.bashrc: line 15: /work/gp36/b20072/miniconda3/etc/profile.d/conda.sh: No such file or directory
+/work/gp36/b20072/.bash_profile: line 9: /work/gp36/b20072/.cargo/env: No such file or directory
+/var/spool/pbs/mom_priv/jobs/1189150.opbs.SC: line 23: /work/gp36/b20072/miniconda3/etc/profile.d/conda.sh: No such file or directory
+
+CondaError: Run 'conda init' before 'conda activate'
+
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/work/gp36/b20072/NGRC_LM/src/ngrc_lm_low_rank.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
