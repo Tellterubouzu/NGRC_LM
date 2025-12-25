@@ -16,7 +16,7 @@
         - [ ] NGRC
             - [ ] Next Generation Reservoir Computing
         - [ ] Multilayered-NGRC models
-            - [ ] Layer Varying Deep Reservoir Computing Architecture
+            - [ ] Layer Varying Deep Reservoir Computing Architecture -> ICLR2025 reject
             - [ ] Next-Generation Reservoir Computing for Dynamical Inference
             - [ ] Adaptive Nonliniear Vector Autoreguression - Robust Forecasting for Noisy Chaotic Time Series
             - [ ] Temporal Convolution Dericed Multi-layer Reservoir Computing
@@ -42,6 +42,7 @@
 - [ ] これまでの知見 
     - [ ] 50M 前後の実験では多層のGPTにNGRCのperplexityが匹敵
     - [ ] 100M 150MTokenの学習で多層のGPTが上回るため，NGRCも多層化が必要
+    - [ ] cross termなしの時，polydegreeは3の時が最もよい，遅延項についても10くらいが最もよい
 
 - [ ] アブレーションスタディ
     - [ ] 単層NGRC
@@ -51,6 +52,7 @@
     - [ ] 演算の共通化
 
 - [ ] 比較実験
+    - [ ] DeepESN
     - [ ] GPT-2
     - [ ] Transformer++
     - [ ] Mamba-3
