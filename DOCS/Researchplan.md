@@ -57,6 +57,7 @@
     - [ ] LinearAttention
     - [ ] RWKV
     - [ ] Deepseek Sparse Attention
+    - [ ] Diffusion Transformer
 
 - [ ] 評価ベンチマークテスト
     - [ ] mambaで使われてるようなやつ
