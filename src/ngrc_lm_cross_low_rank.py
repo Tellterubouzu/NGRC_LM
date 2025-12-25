@@ -223,6 +223,9 @@ class NGRC_LM(nn.Module):
         self.lag = lag
         self.poly_degree = poly_degree
         self.max_cross_terms = max_cross_terms
+        self.cross_mode = cross_mode
+        self.cross_proj_dim = cross_proj_dim
+        self.cross_offset = cross_offset
         self.loss_type = loss_type
 
         if poly_degree < 1:
@@ -287,7 +290,7 @@ class NGRC_LM(nn.Module):
             raise ValueError(f"unknown cross_mode: {self.cross_mode}")
 
         # φ(z) の次元: 1 + base_dim * poly_degree + cross_dim
-        self.phi_dim = 1 + base_dim * self.poly_degree + self.cross_dim
+        phi_dim = 1 + base_dim * self.poly_degree + self.cross_dim
 
         # 低ランク readout: phi_dim → readout_rank → vocab
         self.readout_proj = nn.Linear(phi_dim, readout_rank, bias=False)
@@ -793,6 +796,7 @@ def NGRC_experiment(lr):
         run_name = args.wandb_run_name or (
             f"NGRC_LM({param_millions:.2f}M_d{args.ngrc_d_model}"
             f"_lag{args.ngrc_lag}_poly{args.ngrc_poly_degree}_rank{args.ngrc_readout_rank}_lr{args.learning_rate}"
+            f"_cross_mode{args.ngrc_cross_mode}_cross_proj_dim{args.ngrc_cross_proj_dim}_cross_offset{args.ngrc_cross_offset}"
             f"_bs{args.local_batch_size}_seq{args.seq_len}_{run_id}"
         )
         wandb.init(project=args.wandb_project, name=run_name, config=vars(args))
@@ -1128,3 +1132,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
