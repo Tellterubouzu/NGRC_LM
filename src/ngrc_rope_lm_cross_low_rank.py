@@ -303,13 +303,13 @@ class NGRC_LM(nn.Module):
             rope_dim = int(round(d_model * float(rope_fraction)))
             rope_dim = max(0,min(d_model, rope_dim))
             rope_dim -= rope_dim %2
-            if rope_dim > 2 :
+            if rope_dim < 2 :
                 raise ValueError(
-                    f"rope dimentoin must be >= 2 after rounding; fot rope dim={rope_dim}",
+                    f"rope dimentoin must be >= 2 after rounding; fot rope dim={rope_dim}"
                     f"try rope fraction =1.0 and even d_model"
                 )
-        self.rope = RotaryEmbedding(rope_dim, base=rope_base)
-        self.rope_dim = rope_dim
+            self.rope = RotaryEmbedding(rope_dim, base=rope_base)
+            self.rope_dim = rope_dim
         if poly_degree < 1:
             raise ValueError("poly_degree must be >= 1")
         if readout_rank <= 0:
@@ -393,6 +393,11 @@ class NGRC_LM(nn.Module):
         L = self.lag
         pad = emb[:, :1, :].expand(B, L - 1, D)  # 先頭を繰り返しパディング
         emb_padded = torch.cat([pad, emb], dim=1)  # (B, T+L-1, D)
+
+        if self.rope is not None:
+            pos = torch.arange(-(L - 1), T, device=emb.device, dtype=torch.float32)  # length = T+L-1
+            emb_padded = self._apply_rope_to_emb(emb_padded, positions=pos)
+
         z = emb_padded.unfold(dimension=1, size=L, step=1)  # (B, T, L, D)
         z_flat = z.contiguous().view(B, T, L * D)
         return z_flat
@@ -753,7 +758,7 @@ def parse_args_ngrc():
     parser.add_argument("--wandb_project", type=str, default="NGRC_LanguageModel")
     parser.add_argument("--wandb_run_name", type=str, default=None)
     parser.add_argument("--api_file", type=str, default="api.txt")
-    parser.add_argument("--log_grad", action = "store_false")
+    parser.add_argument("--log_grad", action = "store_true")
     # HF
     parser.add_argument("--hf_repo", type=str, default=None)
     parser.add_argument("--hf_private", action="store_false")
@@ -831,7 +836,7 @@ def NGRC_experiment(lr):
         readout_rank=args.ngrc_readout_rank,
         embed_trainable=embed_trainable,
         loss_type=args.ngrc_loss,
-        use_rope=not args.ngrc_disable_rope,
+        use_rope=(not args.ngrc_disable_rope),
         rope_base=args.ngrc_rope_base,
         rope_fraction=args.ngrc_rope_fraction,
         device=device,
@@ -1235,3 +1240,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
