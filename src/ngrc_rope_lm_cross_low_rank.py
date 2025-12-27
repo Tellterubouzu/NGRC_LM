@@ -428,17 +428,25 @@ class NGRC_LM(nn.Module):
 
         phi = torch.cat(feats, dim=-1)
         return phi
-    def _apply_rope_to_emb(self, emb: torch.Tensor) -> torch.Tensor:
+    def _apply_rope_to_emb(
+        self,
+        emb: torch.Tensor,
+        positions: torch.Tensor | None = None,
+    ) -> torch.Tensor:
         """
         emb: (B,T,D)
-        - RoPEをembの先頭rope_dim次元に適用
-        - rope_dim < Dの場合は残りの次元はそのまま
+        positions: (T,) or (B,T) or None
         """
         if self.rope is None:
             return emb
+
         if self.rope_dim == emb.size(-1):
-            return self.rope(emb)
-        rope_part = self.rope(emb[..., :self.rope_dim])
+            return self.rope(emb, positions=positions)
+
+        rope_part = self.rope(
+            emb[..., :self.rope_dim],
+            positions=positions,
+        )
         return torch.cat([rope_part, emb[..., self.rope_dim:]], dim=-1)
 
     @torch.no_grad()
